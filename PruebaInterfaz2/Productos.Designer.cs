@@ -31,8 +31,8 @@
             this.panelContenedor = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.cb_Tipo = new System.Windows.Forms.ComboBox();
+            this.txt_Nombre = new System.Windows.Forms.TextBox();
+            this.cb_Proveedores = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnEditar = new FontAwesome.Sharp.IconButton();
             this.btnRegistro = new FontAwesome.Sharp.IconButton();
@@ -41,20 +41,20 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txt_Precio = new System.Windows.Forms.TextBox();
+            this.txt_Unidades = new System.Windows.Forms.TextBox();
+            this.txt_IdProvider = new System.Windows.Forms.TextBox();
             this.txt_Id = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.DT_Productos = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
             this.panelContenedor.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DT_Productos)).BeginInit();
             this.SuspendLayout();
             // 
             // panelContenedor
@@ -84,8 +84,8 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.textBox3);
-            this.panel2.Controls.Add(this.cb_Tipo);
+            this.panel2.Controls.Add(this.txt_Nombre);
+            this.panel2.Controls.Add(this.cb_Proveedores);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.btnEditar);
             this.panel2.Controls.Add(this.btnRegistro);
@@ -94,9 +94,9 @@
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.panel6);
             this.panel2.Controls.Add(this.panel7);
-            this.panel2.Controls.Add(this.textBox1);
-            this.panel2.Controls.Add(this.textBox7);
-            this.panel2.Controls.Add(this.textBox2);
+            this.panel2.Controls.Add(this.txt_Precio);
+            this.panel2.Controls.Add(this.txt_Unidades);
+            this.panel2.Controls.Add(this.txt_IdProvider);
             this.panel2.Controls.Add(this.txt_Id);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(3, 3);
@@ -104,34 +104,35 @@
             this.panel2.Size = new System.Drawing.Size(434, 597);
             this.panel2.TabIndex = 0;
             // 
-            // textBox3
+            // txt_Nombre
             // 
-            this.textBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txt_Nombre.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox3.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.textBox3.Location = new System.Drawing.Point(18, 218);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.PlaceholderText = "Nombre del libro";
-            this.textBox3.Size = new System.Drawing.Size(311, 25);
-            this.textBox3.TabIndex = 69;
+            this.txt_Nombre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.txt_Nombre.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_Nombre.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_Nombre.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.txt_Nombre.Location = new System.Drawing.Point(18, 218);
+            this.txt_Nombre.Name = "txt_Nombre";
+            this.txt_Nombre.PlaceholderText = "Nombre del libro";
+            this.txt_Nombre.Size = new System.Drawing.Size(311, 25);
+            this.txt_Nombre.TabIndex = 69;
             // 
-            // cb_Tipo
+            // cb_Proveedores
             // 
-            this.cb_Tipo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.cb_Proveedores.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.cb_Tipo.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.cb_Tipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cb_Tipo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cb_Tipo.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.cb_Tipo.ForeColor = System.Drawing.Color.LightGray;
-            this.cb_Tipo.FormattingEnabled = true;
-            this.cb_Tipo.Location = new System.Drawing.Point(18, 181);
-            this.cb_Tipo.Name = "cb_Tipo";
-            this.cb_Tipo.Size = new System.Drawing.Size(250, 31);
-            this.cb_Tipo.TabIndex = 69;
+            this.cb_Proveedores.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.cb_Proveedores.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_Proveedores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cb_Proveedores.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cb_Proveedores.ForeColor = System.Drawing.Color.LightGray;
+            this.cb_Proveedores.FormattingEnabled = true;
+            this.cb_Proveedores.Location = new System.Drawing.Point(18, 181);
+            this.cb_Proveedores.Name = "cb_Proveedores";
+            this.cb_Proveedores.Size = new System.Drawing.Size(250, 31);
+            this.cb_Proveedores.TabIndex = 69;
+            this.cb_Proveedores.SelectedValueChanged += new System.EventHandler(this.cb_Proveedores_SelectedValueChanged);
             // 
             // label1
             // 
@@ -150,6 +151,7 @@
             // 
             this.btnEditar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEditar.Enabled = false;
             this.btnEditar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.btnEditar.FlatAppearance.BorderSize = 2;
             this.btnEditar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
@@ -168,6 +170,7 @@
             this.btnEditar.TabIndex = 67;
             this.btnEditar.Text = "Modificar informacion";
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnRegistro
             // 
@@ -191,6 +194,7 @@
             this.btnRegistro.TabIndex = 66;
             this.btnRegistro.Text = "Registrar producto";
             this.btnRegistro.UseVisualStyleBackColor = true;
+            this.btnRegistro.Click += new System.EventHandler(this.btnRegistro_Click);
             // 
             // panel1
             // 
@@ -243,48 +247,48 @@
             this.panel7.TabIndex = 64;
             this.panel7.Paint += new System.Windows.Forms.PaintEventHandler(this.panel7_Paint);
             // 
-            // textBox1
+            // txt_Precio
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txt_Precio.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.textBox1.Location = new System.Drawing.Point(18, 317);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.PlaceholderText = "Precio por paquete";
-            this.textBox1.Size = new System.Drawing.Size(311, 25);
-            this.textBox1.TabIndex = 57;
+            this.txt_Precio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.txt_Precio.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_Precio.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_Precio.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.txt_Precio.Location = new System.Drawing.Point(18, 317);
+            this.txt_Precio.Name = "txt_Precio";
+            this.txt_Precio.PlaceholderText = "Precio por paquete";
+            this.txt_Precio.Size = new System.Drawing.Size(311, 25);
+            this.txt_Precio.TabIndex = 57;
             // 
-            // textBox7
+            // txt_Unidades
             // 
-            this.textBox7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txt_Unidades.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.textBox7.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox7.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.textBox7.Location = new System.Drawing.Point(18, 270);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.PlaceholderText = "Unidades por paquete";
-            this.textBox7.Size = new System.Drawing.Size(311, 25);
-            this.textBox7.TabIndex = 57;
+            this.txt_Unidades.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.txt_Unidades.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_Unidades.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_Unidades.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.txt_Unidades.Location = new System.Drawing.Point(18, 270);
+            this.txt_Unidades.Name = "txt_Unidades";
+            this.txt_Unidades.PlaceholderText = "Unidades por paquete";
+            this.txt_Unidades.Size = new System.Drawing.Size(311, 25);
+            this.txt_Unidades.TabIndex = 57;
             // 
-            // textBox2
+            // txt_IdProvider
             // 
-            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txt_IdProvider.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Enabled = false;
-            this.textBox2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox2.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.textBox2.Location = new System.Drawing.Point(131, 144);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.PlaceholderText = "Id Proveedor";
-            this.textBox2.Size = new System.Drawing.Size(198, 25);
-            this.textBox2.TabIndex = 60;
+            this.txt_IdProvider.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.txt_IdProvider.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_IdProvider.Enabled = false;
+            this.txt_IdProvider.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_IdProvider.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.txt_IdProvider.Location = new System.Drawing.Point(131, 144);
+            this.txt_IdProvider.Name = "txt_IdProvider";
+            this.txt_IdProvider.PlaceholderText = "Id Proveedor";
+            this.txt_IdProvider.Size = new System.Drawing.Size(198, 25);
+            this.txt_IdProvider.TabIndex = 60;
             // 
             // txt_Id
             // 
@@ -302,28 +306,30 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.dataGridView1);
+            this.panel3.Controls.Add(this.DT_Productos);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.label2);
-            this.panel3.Controls.Add(this.textBox6);
+            this.panel3.Controls.Add(this.txtBuscar);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(443, 3);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(656, 597);
             this.panel3.TabIndex = 1;
             // 
-            // dataGridView1
+            // DT_Productos
             // 
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.DT_Productos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(17, 125);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(620, 345);
-            this.dataGridView1.TabIndex = 0;
+            this.DT_Productos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DT_Productos.Location = new System.Drawing.Point(17, 125);
+            this.DT_Productos.Name = "DT_Productos";
+            this.DT_Productos.RowHeadersWidth = 51;
+            this.DT_Productos.RowTemplate.Height = 29;
+            this.DT_Productos.Size = new System.Drawing.Size(620, 345);
+            this.DT_Productos.TabIndex = 0;
+            this.DT_Productos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DT_Productos_CellClick);
+            this.DT_Productos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DT_Productos_CellContentClick);
             // 
             // label3
             // 
@@ -352,20 +358,20 @@
             this.label2.TabIndex = 68;
             this.label2.Text = "Productos registrados";
             // 
-            // textBox6
+            // txtBuscar
             // 
-            this.textBox6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox6.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.textBox6.Location = new System.Drawing.Point(326, 91);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.PlaceholderText = "Nombre del libro";
-            this.textBox6.Size = new System.Drawing.Size(311, 25);
-            this.textBox6.TabIndex = 59;
-            this.textBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.txtBuscar.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtBuscar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtBuscar.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.txtBuscar.Location = new System.Drawing.Point(326, 91);
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.PlaceholderText = "Nombre del libro";
+            this.txtBuscar.Size = new System.Drawing.Size(311, 25);
+            this.txtBuscar.TabIndex = 59;
+            this.txtBuscar.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // Productos
             // 
@@ -381,7 +387,7 @@
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DT_Productos)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -398,17 +404,17 @@
         private Panel panel4;
         private Panel panel6;
         private Panel panel7;
-        private TextBox textBox1;
-        private TextBox textBox7;
-        private TextBox textBox6;
+        private TextBox txt_Precio;
+        private TextBox txt_Unidades;
+        private TextBox txtBuscar;
         private TextBox txt_Id;
         private Panel panel3;
-        private DataGridView dataGridView1;
-        private ComboBox cb_Tipo;
+        private DataGridView DT_Productos;
+        private ComboBox cb_Proveedores;
         private Label label1;
         private Label label2;
-        private TextBox textBox3;
-        private TextBox textBox2;
+        private TextBox txt_Nombre;
+        private TextBox txt_IdProvider;
         private Label label3;
     }
 }

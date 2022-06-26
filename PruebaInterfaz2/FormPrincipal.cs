@@ -291,5 +291,10 @@ namespace PruebaInterfaz2
         {
 
         }
+
+        private void iconButton3_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario<Productos>();
+        }
     }
 }

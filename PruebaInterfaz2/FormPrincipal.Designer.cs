@@ -169,8 +169,9 @@
             this.iconButton3.Name = "iconButton3";
             this.iconButton3.Size = new System.Drawing.Size(188, 53);
             this.iconButton3.TabIndex = 5;
-            this.iconButton3.Text = "Compras";
+            this.iconButton3.Text = "Productos";
             this.iconButton3.UseVisualStyleBackColor = true;
+            this.iconButton3.Click += new System.EventHandler(this.iconButton3_Click);
             // 
             // panel5
             // 
