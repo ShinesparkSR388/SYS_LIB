@@ -1,10 +1,13 @@
 ﻿using System.Runtime.InteropServices;
+using CapaModelo;
+using CapaDatos;
 
 namespace PruebaInterfaz2;
 
 public partial class FormLogin : Form
 {
     public static string _usuario;
+    private Usuario user = new Usuario();
     public FormLogin()
     {
         InitializeComponent();
@@ -13,7 +16,13 @@ public partial class FormLogin : Form
 
     private void AbrirForms()
     {
-        if (!txtPass.Text.Equals("123")) return;
+        user.User = txtUsusario.Text;
+        user.Pass = txtPass.Text;
+        bool val = FD_LOGIN.ValidarUsuario(user);
+        if (val == false) {
+            MessageBox.Show("Usuario o contraseña incorrectos ", val.ToString());
+            return;
+        }
         _usuario = txtUsusario.Text;
         Hide();
         new FormWelcome().ShowDialog();

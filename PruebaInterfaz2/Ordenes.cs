@@ -21,5 +21,15 @@ namespace PruebaInterfaz2
         {
             
         }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Ordenes_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

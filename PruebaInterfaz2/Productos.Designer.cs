@@ -1,6 +1,6 @@
 ﻿namespace PruebaInterfaz2
 {
-    partial class Ordenes
+    partial class Productos
     {
         /// <summary>
         /// Required designer variable.
@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.panelContenedor = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnEliminar = new FontAwesome.Sharp.IconButton();
-            this.btnModificar = new FontAwesome.Sharp.IconButton();
+            this.btnEditar = new FontAwesome.Sharp.IconButton();
+            this.btnRegistro = new FontAwesome.Sharp.IconButton();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -45,13 +46,22 @@
             this.txt_Id = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.panelContenedor = new System.Windows.Forms.Panel();
+            this.panelContenedor.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.panelContenedor.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // panelContenedor
+            // 
+            this.panelContenedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.panelContenedor.Controls.Add(this.tableLayoutPanel1);
+            this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelContenedor.Location = new System.Drawing.Point(0, 0);
+            this.panelContenedor.Name = "panelContenedor";
+            this.panelContenedor.Size = new System.Drawing.Size(1102, 603);
+            this.panelContenedor.TabIndex = 1;
             // 
             // tableLayoutPanel1
             // 
@@ -70,8 +80,8 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.btnEliminar);
-            this.panel2.Controls.Add(this.btnModificar);
+            this.panel2.Controls.Add(this.btnEditar);
+            this.panel2.Controls.Add(this.btnRegistro);
             this.panel2.Controls.Add(this.iconButton1);
             this.panel2.Controls.Add(this.panel1);
             this.panel2.Controls.Add(this.panel5);
@@ -89,51 +99,51 @@
             this.panel2.Size = new System.Drawing.Size(434, 597);
             this.panel2.TabIndex = 0;
             // 
-            // btnEliminar
+            // btnEditar
             // 
-            this.btnEliminar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.btnEditar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEliminar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.btnEliminar.FlatAppearance.BorderSize = 2;
-            this.btnEliminar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnEliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnEliminar.ForeColor = System.Drawing.Color.White;
-            this.btnEliminar.IconChar = FontAwesome.Sharp.IconChar.Eraser;
-            this.btnEliminar.IconColor = System.Drawing.Color.White;
-            this.btnEliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnEliminar.IconSize = 30;
-            this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnEliminar.Location = new System.Drawing.Point(18, 401);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(311, 43);
-            this.btnEliminar.TabIndex = 67;
-            this.btnEliminar.Text = "Finalizar orden";
-            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEditar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnEditar.FlatAppearance.BorderSize = 2;
+            this.btnEditar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnEditar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnEditar.ForeColor = System.Drawing.Color.White;
+            this.btnEditar.IconChar = FontAwesome.Sharp.IconChar.Eraser;
+            this.btnEditar.IconColor = System.Drawing.Color.White;
+            this.btnEditar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnEditar.IconSize = 30;
+            this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnEditar.Location = new System.Drawing.Point(18, 401);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(311, 43);
+            this.btnEditar.TabIndex = 67;
+            this.btnEditar.Text = "Modificar informacion";
+            this.btnEditar.UseVisualStyleBackColor = true;
             // 
-            // btnModificar
+            // btnRegistro
             // 
-            this.btnModificar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.btnRegistro.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnModificar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.btnModificar.FlatAppearance.BorderSize = 2;
-            this.btnModificar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnModificar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnModificar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnModificar.ForeColor = System.Drawing.Color.White;
-            this.btnModificar.IconChar = FontAwesome.Sharp.IconChar.Edit;
-            this.btnModificar.IconColor = System.Drawing.Color.White;
-            this.btnModificar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnModificar.IconSize = 30;
-            this.btnModificar.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnModificar.Location = new System.Drawing.Point(18, 345);
-            this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(311, 43);
-            this.btnModificar.TabIndex = 66;
-            this.btnModificar.Text = "Agregar paquete";
-            this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnRegistro.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnRegistro.FlatAppearance.BorderSize = 2;
+            this.btnRegistro.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnRegistro.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnRegistro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegistro.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnRegistro.ForeColor = System.Drawing.Color.White;
+            this.btnRegistro.IconChar = FontAwesome.Sharp.IconChar.Edit;
+            this.btnRegistro.IconColor = System.Drawing.Color.White;
+            this.btnRegistro.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnRegistro.IconSize = 30;
+            this.btnRegistro.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnRegistro.Location = new System.Drawing.Point(18, 345);
+            this.btnRegistro.Name = "btnRegistro";
+            this.btnRegistro.Size = new System.Drawing.Size(311, 43);
+            this.btnRegistro.TabIndex = 66;
+            this.btnRegistro.Text = "Registrar producto";
+            this.btnRegistro.UseVisualStyleBackColor = true;
             // 
             // iconButton1
             // 
@@ -150,7 +160,6 @@
             this.iconButton1.TabIndex = 65;
             this.iconButton1.Text = "...";
             this.iconButton1.UseVisualStyleBackColor = true;
-            this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
             // 
             // panel1
             // 
@@ -280,7 +289,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(656, 597);
             this.panel3.TabIndex = 1;
-            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // dataGridView1
             // 
@@ -295,54 +303,43 @@
             this.dataGridView1.Size = new System.Drawing.Size(588, 345);
             this.dataGridView1.TabIndex = 0;
             // 
-            // panelContenedor
-            // 
-            this.panelContenedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.panelContenedor.Controls.Add(this.tableLayoutPanel1);
-            this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContenedor.Location = new System.Drawing.Point(0, 0);
-            this.panelContenedor.Name = "panelContenedor";
-            this.panelContenedor.Size = new System.Drawing.Size(1102, 603);
-            this.panelContenedor.TabIndex = 0;
-            // 
-            // Ordenes
+            // Productos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1102, 603);
             this.Controls.Add(this.panelContenedor);
-            this.Name = "Ordenes";
-            this.Text = "Ordenes";
-            this.Load += new System.EventHandler(this.Ordenes_Load);
+            this.Name = "Productos";
+            this.Text = "Productos";
+            this.panelContenedor.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.panelContenedor.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
+        private Panel panelContenedor;
         private TableLayoutPanel tableLayoutPanel1;
         private Panel panel2;
+        private FontAwesome.Sharp.IconButton btnEditar;
+        private FontAwesome.Sharp.IconButton btnRegistro;
+        private FontAwesome.Sharp.IconButton iconButton1;
+        private Panel panel1;
         private Panel panel5;
         private Panel panel4;
         private Panel panel6;
         private Panel panel7;
+        private TextBox textBox1;
         private TextBox textBox7;
+        public TextBox textBox2;
         private TextBox textBox6;
         private TextBox txt_Id;
         private Panel panel3;
-        private Panel panelContenedor;
-        private Panel panel1;
-        private TextBox textBox1;
-        public TextBox textBox2;
-        private FontAwesome.Sharp.IconButton iconButton1;
-        private FontAwesome.Sharp.IconButton btnEliminar;
-        private FontAwesome.Sharp.IconButton btnModificar;
         private DataGridView dataGridView1;
     }
 }

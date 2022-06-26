@@ -128,10 +128,55 @@ END
 GO
 
 --********************* --------------------- *********************
---********************* procedure structures for PRODUCTS**********
+--********************* procedure structures for USERS ************
 --********************* --------------------- *********************
-EXEC reg_Provider 1,'2',12313,0,'123123123',0
-EXEC get_Provider
-EXEC del_Provider 1,0
-EXEC del_Provider 2,0
-EXEC del_Provider 3,0
+
+-------------------------------
+-- procedure structure for val_User
+-- ----------------------------
+
+IF EXISTS (SELECT * FROM sys.all_objects WHERE object_id = OBJECT_ID(N'[dbo].[val_User]') AND type IN ('P', 'PC', 'RF', 'X'))
+	DROP PROCEDURE[dbo].[val_User]
+GO
+
+CREATE PROCEDURE [dbo].[val_User](
+@Usuario varchar (100),
+@Pass varchar (100),
+@Resultado bit output
+)
+AS
+SET @Resultado = 0
+BEGIN
+	IF EXISTS (SELECT * FROM USERS WHERE [User] = @Usuario AND [Clave] = @Pass)
+		SET @Resultado = 1;
+PRINT @Resultado
+END
+GO
+-------------------------------
+-- procedure structure for reg_User
+-- ----------------------------
+
+IF EXISTS (SELECT * FROM sys.all_objects WHERE object_id = OBJECT_ID(N'[dbo].[reg_User]') AND type IN ('P', 'PC', 'RF', 'X'))
+	DROP PROCEDURE[dbo].[reg_User]
+GO
+
+CREATE PROCEDURE [dbo].[reg_User](
+@Usuario varchar (100),
+@Pass varchar (100),
+@Tipo int,
+@Resultado bit output
+)
+AS
+SET @Resultado = 1
+BEGIN
+	IF EXISTS (SELECT * FROM USERS WHERE [User] = @Usuario)
+		SET @Resultado = 0;
+END
+BEGIN
+	IF (@Resultado = 1)
+		INSERT INTO [dbo].[USERS] ([User],[Clave],[Tipo]) VALUES (@Usuario,@Pass,@Tipo)
+
+END	
+GO
+EXEC reg_User 'user','123',1,1
+EXEC reg_User 'admin','123',1,1
