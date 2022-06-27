@@ -129,8 +129,11 @@ namespace PruebaInterfaz2
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
+            articulo_actual.FechaRegistro = (DateTime.Now).ToString();
             ordenes.Add(articulo_actual);
             mostrarDatos();
+            articulo_actual = new Orden();
+            btnAgregar.Enabled=false;
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -144,11 +147,23 @@ namespace PruebaInterfaz2
                 foreach (Orden order in ordenes)
                 {
                     ver1 = FD_Ordenes.registrarOrden(order);
-                    ver2 = FD_Stock.registrarStock(order);
+
+                    if (ver1 == false)
+                    {
+                        ver2 = FD_Stock.registrarStock(order);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error al guardar la orden ", order.Name.ToString());
+                    }
+
                 }
             }
             else { return; }
             ordenes.Clear();
+            btnAgregar.Enabled=false;
+            mostrarDatos();
+
         }
     }
 }

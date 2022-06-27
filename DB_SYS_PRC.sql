@@ -336,12 +336,29 @@ CREATE PROCEDURE [dbo].[reg_Stock]
 )
 AS
 SET @Result = 0
-BEGIN TRY
-	INSERT INTO [dbo].[STOCK] ([IdProducto],[Descripcion],[Paquetes],[UnidadPaquete],[PrecioPaquete],[FechaRegistro]) VALUES (@IdProducto,@Descripcion,@Paquetes,@UnidadPaquete,@PrecioPaquete,@FechaRegistro)
-END TRY
-BEGIN CATCH
-	SET @Result = 1
-	PRINT @Result
-END CATCH
+IF EXISTS (SELECT * FROM [dbo].[STOCK] WHERE IdProducto = @IdProducto)
+	BEGIN TRY
+			update [dbo].[STOCK] SET
+			Paquetes = Paquetes + @Paquetes
+			WHERE IdProducto = @IdProducto
+			PRINT 5
+	END TRY
+	BEGIN CATCH
+		SET @Result = 1
+		PRINT @Result
+	END CATCH
+ELSE
+	BEGIN TRY
+		INSERT INTO [dbo].[STOCK] ([IdProducto],[Descripcion],[Paquetes],[UnidadPaquete],[PrecioPaquete],[FechaRegistro]) VALUES (@IdProducto,@Descripcion,@Paquetes,@UnidadPaquete,@PrecioPaquete,@FechaRegistro)
+	END TRY
+	BEGIN CATCH
+		SET @Result = 1
+		PRINT @Result
+	END CATCH
 GO
+
+SELECT * FROM INPUTS
+SELECT * FROM PRODUCTS
+
+EXEC reg_Stock 1,'11',1,1,11,'111',1
 EXEC get_Stock

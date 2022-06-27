@@ -11,6 +11,7 @@ namespace CapaDatos
             bool QRes = false;
             using (SqlConnection cConn = new SqlConnection(Conexion.cn))
             {
+                
                 try
                 {
                     SqlCommand cmd = new SqlCommand("reg_Stock", cConn);
