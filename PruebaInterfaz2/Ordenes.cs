@@ -35,7 +35,7 @@ namespace PruebaInterfaz2
 
             foreach (var order in ordenes)
             {
-                string[] val = {order.IdProducto.ToString(),order.IdProveedor.ToString(),order.Name.ToString(),order.Paquetes.ToString(),order.Total.ToString()};
+                string[] val = { order.IdProducto.ToString(), order.IdProveedor.ToString(), order.Name.ToString(), order.Paquetes.ToString(), order.Total.ToString() };
                 DT_Ordenes.Rows.Add(val);
             }
         }
@@ -91,7 +91,7 @@ namespace PruebaInterfaz2
                     articulo_actual.Name = product.Descripcion;
                     articulo_actual.PrecioPaquete = product.PrecioPaquete;
                     articulo_actual.UnidadPaquete = product.UnidadPaquete;
-                    
+
                     try
                     {
                         articulo_actual.Paquetes = Convert.ToInt32(txtPaquetes.Text);
@@ -135,7 +135,20 @@ namespace PruebaInterfaz2
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
+            bool ver1, ver2;
 
+            if ((MessageBox.Show("La operacion NO puede desacerse... ¿Desea Continuar?", "CONFIRMAR",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question,
+                MessageBoxDefaultButton.Button1) == System.Windows.Forms.DialogResult.Yes))
+            {
+                foreach (Orden order in ordenes)
+                {
+                    ver1 = FD_Ordenes.registrarOrden(order);
+                    ver2 = FD_Stock.registrarStock(order);
+                }
+            }
+            else { return; }
+            ordenes.Clear();
         }
     }
 }

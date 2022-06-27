@@ -59,7 +59,7 @@ CREATE TABLE [dbo].[STOCK] (
   [IdItem] int primary key IDENTITY(1,1) NOT NULL,
   [IdProducto] int foreign key references PRODUCTS(IdProducto),
   [Descripcion] varchar (100),
-  [Unidades] int NOT NULL,
+  [Unidades] int NOT NULL default (0),
   [Paquetes] int NOT NULL,
   [UnidadPaquete] int NOT NULL,
   [PrecioPaquete] float (30) DEFAULT (0),

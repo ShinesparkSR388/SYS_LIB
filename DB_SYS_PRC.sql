@@ -180,6 +180,7 @@ END
 GO
 EXEC reg_User 'user','123',1,1
 EXEC reg_User 'admin','123',1,1
+EXEC reg_User '','',1,1
 
 --********************* --------------------- *********************
 --********************* procedure structures for PRODUCTS *********
@@ -272,13 +273,13 @@ GO
 --********************* procedure structures for INPUT**********
 --********************* --------------------- *********************
 -- ----------------------------
--- procedure structure for reg_INPUT
+-- procedure structure for reg_Input
 -- ----------------------------
-IF EXISTS (SELECT * FROM sys.all_objects WHERE object_id = OBJECT_ID(N'[dbo].[reg_INPUT]') AND type IN ('P', 'PC', 'RF', 'X'))
-	DROP PROCEDURE[dbo].[reg_INPUT]
+IF EXISTS (SELECT * FROM sys.all_objects WHERE object_id = OBJECT_ID(N'[dbo].[reg_Input]') AND type IN ('P', 'PC', 'RF', 'X'))
+	DROP PROCEDURE[dbo].[reg_Input]
 GO
 
-CREATE PROCEDURE [dbo].[reg_INPUT]
+CREATE PROCEDURE [dbo].[reg_Input]
 (
 @IdProveedor int ,
 @IdProducto int ,
@@ -316,3 +317,31 @@ begin
  select * from [dbo].[STOCK]
 end
 GO
+-- ----------------------------
+-- procedure structure for reg_Stock
+-- ----------------------------
+IF EXISTS (SELECT * FROM sys.all_objects WHERE object_id = OBJECT_ID(N'[dbo].[reg_Stock]') AND type IN ('P', 'PC', 'RF', 'X'))
+	DROP PROCEDURE[dbo].[reg_Stock]
+GO
+
+CREATE PROCEDURE [dbo].[reg_Stock]
+(
+@IdProducto int ,
+@Descripcion varchar(100),
+@Paquetes int ,
+@UnidadPaquete int ,
+@PrecioPaquete float (30),
+@FechaRegistro varchar(100),
+@Result bit output
+)
+AS
+SET @Result = 0
+BEGIN TRY
+	INSERT INTO [dbo].[STOCK] ([IdProducto],[Descripcion],[Paquetes],[UnidadPaquete],[PrecioPaquete],[FechaRegistro]) VALUES (@IdProducto,@Descripcion,@Paquetes,@UnidadPaquete,@PrecioPaquete,@FechaRegistro)
+END TRY
+BEGIN CATCH
+	SET @Result = 1
+	PRINT @Result
+END CATCH
+GO
+EXEC get_Stock
