@@ -34,6 +34,7 @@
             this.txt_Nombre = new System.Windows.Forms.TextBox();
             this.cb_Proveedores = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnCancelar = new FontAwesome.Sharp.IconButton();
             this.btnEditar = new FontAwesome.Sharp.IconButton();
             this.btnRegistro = new FontAwesome.Sharp.IconButton();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -87,6 +88,7 @@
             this.panel2.Controls.Add(this.txt_Nombre);
             this.panel2.Controls.Add(this.cb_Proveedores);
             this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.btnCancelar);
             this.panel2.Controls.Add(this.btnEditar);
             this.panel2.Controls.Add(this.btnRegistro);
             this.panel2.Controls.Add(this.panel1);
@@ -132,6 +134,7 @@
             this.cb_Proveedores.Name = "cb_Proveedores";
             this.cb_Proveedores.Size = new System.Drawing.Size(250, 31);
             this.cb_Proveedores.TabIndex = 69;
+            this.cb_Proveedores.SelectedIndexChanged += new System.EventHandler(this.cb_Proveedores_SelectedIndexChanged);
             this.cb_Proveedores.SelectedValueChanged += new System.EventHandler(this.cb_Proveedores_SelectedValueChanged);
             // 
             // label1
@@ -146,6 +149,32 @@
             this.label1.Size = new System.Drawing.Size(113, 23);
             this.label1.TabIndex = 68;
             this.label1.Text = "Proveedor";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancelar.Enabled = false;
+            this.btnCancelar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnCancelar.FlatAppearance.BorderSize = 2;
+            this.btnCancelar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnCancelar.ForeColor = System.Drawing.Color.White;
+            this.btnCancelar.IconChar = FontAwesome.Sharp.IconChar.Times;
+            this.btnCancelar.IconColor = System.Drawing.Color.White;
+            this.btnCancelar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnCancelar.IconSize = 30;
+            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnCancelar.Location = new System.Drawing.Point(18, 476);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(43, 43);
+            this.btnCancelar.TabIndex = 67;
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Visible = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnEditar
             // 
@@ -225,6 +254,7 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(311, 2);
             this.panel4.TabIndex = 62;
+            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
             // 
             // panel6
             // 
@@ -289,6 +319,7 @@
             this.txt_IdProvider.PlaceholderText = "Id Proveedor";
             this.txt_IdProvider.Size = new System.Drawing.Size(198, 25);
             this.txt_IdProvider.TabIndex = 60;
+            this.txt_IdProvider.TextChanged += new System.EventHandler(this.txt_IdProvider_TextChanged);
             // 
             // txt_Id
             // 
@@ -318,6 +349,7 @@
             // 
             // DT_Productos
             // 
+            this.DT_Productos.AllowUserToAddRows = false;
             this.DT_Productos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -372,6 +404,7 @@
             this.txtBuscar.Size = new System.Drawing.Size(311, 25);
             this.txtBuscar.TabIndex = 59;
             this.txtBuscar.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
             // Productos
             // 
@@ -416,5 +449,6 @@
         private TextBox txt_Nombre;
         private TextBox txt_IdProvider;
         private Label label3;
+        private FontAwesome.Sharp.IconButton btnCancelar;
     }
 }

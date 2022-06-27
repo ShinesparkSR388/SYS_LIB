@@ -262,11 +262,25 @@ BEGIN TRY
 	[IdProveedor] = @IdProveedor,
 	[UnidadPaquete] = @UnidadPaquete,
 	[PrecioPaquete] = @PrecioPaquete
-	WHERE IdProducto = @IdProducto
+	WHERE [IdProducto] = @IdProducto
 END TRY
 BEGIN CATCH
 	SET @Result = 1
 END CATCH
 GO
-EXEC reg_Products 'dd',5,2,2.3,'22222',1
-SELECT * FROM PRODUCTS
+--********************* --------------------- *********************
+--********************* procedure structures for **********
+--********************* --------------------- *********************
+-- ----------------------------
+-- procedure structure for get_Provider
+-- ----------------------------
+IF EXISTS (SELECT * FROM sys.all_objects WHERE object_id = OBJECT_ID(N'[dbo].[get_Provider]') AND type IN ('P', 'PC', 'RF', 'X'))
+	DROP PROCEDURE[dbo].[get_Provider]
+GO
+
+CREATE PROCEDURE [dbo].[get_Provider]
+as
+begin
+ select [IdProveedor],[Tipo],[Descripcion],[Dui],[Nit],[FechaRegistro] from [dbo].[PROVIDER]
+end
+GO

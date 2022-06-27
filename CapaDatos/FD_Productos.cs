@@ -118,12 +118,12 @@ namespace CapaDatos
                 try
                 {
                     SqlCommand cmd = new SqlCommand("upd_Products", cConn);
-                    cmd.Parameters.AddWithValue("IdProducto", datos.Descripcion);
-                    cmd.Parameters.AddWithValue("Descripcion", datos.Descripcion);
+                    cmd.Parameters.AddWithValue("IdProducto", datos.Id);
                     cmd.Parameters.AddWithValue("IdProveedor", datos.IdProveedor);
+                    cmd.Parameters.AddWithValue("Descripcion", datos.Descripcion);
                     cmd.Parameters.AddWithValue("UnidadPaquete", datos.UnidadPaquete);
                     cmd.Parameters.AddWithValue("PrecioPaquete", datos.PrecioPaquete);
-                    cmd.Parameters.Add("Resultado", SqlDbType.Bit).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("Result", SqlDbType.Bit).Direction = ParameterDirection.Output;
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     cConn.Open();

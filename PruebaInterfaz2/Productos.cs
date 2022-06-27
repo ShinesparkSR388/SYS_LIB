@@ -27,6 +27,7 @@ namespace PruebaInterfaz2
             if(data == null) { return; }
             DT_Productos.Rows.Clear();
             DT_Productos.Columns.Clear();
+            DT_Productos.DataSource = null;
 
             DT_Productos.Columns.Add("Id", "Id");
             DT_Productos.Columns.Add("Nombre", "Nombre");
@@ -141,7 +142,8 @@ namespace PruebaInterfaz2
 
         private void DT_Productos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex == 0) { return; }
+            if (e.RowIndex == -1) { return; }
+            if(DT_Productos.Rows.Count < e.RowIndex) { return; }
             DT_Productos.Columns.Add("Id", "Id");
             DT_Productos.Columns.Add("Nombre", "Nombre");
             DT_Productos.Columns.Add("Proveedor", "Proveedor");
@@ -162,6 +164,8 @@ namespace PruebaInterfaz2
             btnEditar.Enabled = true;
             txtBuscar.Enabled = false;
             btnRegistro.Enabled = false;
+            btnCancelar.Visible = true;
+            btnCancelar.Enabled = true;
         }
         private void limpiar()
         {
@@ -185,7 +189,6 @@ namespace PruebaInterfaz2
             actual.Descripcion = txt_Nombre.Text;
             actual.UnidadPaquete = Convert.ToInt32(txt_Unidades.Text);
             actual.PrecioPaquete = Convert.ToDouble(txt_Precio.Text);
-            actual.FechaRegistro = DateTime.Now.ToString();
 
             bool val = FD_Productos.ModificarProducto(actual);
             if (val == false)
@@ -201,10 +204,45 @@ namespace PruebaInterfaz2
             btnEditar.Enabled = false;
             txtBuscar.Enabled = true;
             btnRegistro.Enabled = true;
+            btnCancelar.Visible = false;
             limpiar();
         }
 
         private void DT_Productos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            mostrarDatos(FD_Productos.BuscarProductos(txtBuscar.Text));
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            btnEditar.Enabled = false;
+            txtBuscar.Enabled = true;
+            btnRegistro.Enabled = true;
+            btnCancelar.Visible = false;
+            limpiar();
+        }
+
+        private void cb_Proveedores_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void txt_IdProvider_TextChanged(object sender, EventArgs e)
         {
 
         }

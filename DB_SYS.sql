@@ -58,11 +58,12 @@ GO
 CREATE TABLE [dbo].[STOCK] (
   [IdItem] int primary key IDENTITY(1,1) NOT NULL,
   [IdProducto] int foreign key references PRODUCTS(IdProducto),
+  [Descripcion] varchar (100),
   [Unidades] int NOT NULL,
   [Paquetes] int NOT NULL,
   [UnidadPaquete] int NOT NULL,
   [PrecioPaquete] float (30) DEFAULT (0),
-  [FechaRegistro] datetime DEFAULT getdate() NULL
+  [FechaRegistro] varchar(100) DEFAULT getdate() NULL
 )
 GO
 
@@ -100,10 +101,11 @@ CREATE TABLE [dbo].[INPUTS] (
   [IdEntrada] int primary key IDENTITY(1,1) NOT NULL,
   [IdProveedor] int foreign key references PROVIDER(IdProveedor),
   [IdProducto] int foreign key references PRODUCTS(IdProducto),
-  [Descripcion] varchar(100) COLLATE Modern_Spanish_CI_AS  NULL,
+  [Descripcion] varchar(100) COLLATE Modern_Spanish_CI_AS NOT NULL default(0),
   [Paquetes] int NOT NULL,
   [UnidadPaquete] int NOT NULL,
   [PrecioPaquete] float (30) default(0),
+  [PrecioTotal] float (30) default(0),
   [FechaRegistro] datetime DEFAULT getdate() NULL
 )
 GO
