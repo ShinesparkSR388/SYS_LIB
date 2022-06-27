@@ -63,7 +63,7 @@ CREATE TABLE [dbo].[STOCK] (
   [Paquetes] int NOT NULL,
   [UnidadPaquete] int NOT NULL,
   [PrecioPaquete] float (30) DEFAULT (0),
-  [FechaRegistro] varchar(100) DEFAULT getdate() NULL
+  [FechaRegistro] varchar(100) DEFAULT getdate() NOT NULL
 )
 GO
 

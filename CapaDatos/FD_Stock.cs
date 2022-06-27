@@ -11,7 +11,7 @@ namespace CapaDatos
             bool QRes = false;
             using (SqlConnection cConn = new SqlConnection(Conexion.cn))
             {
-                
+
                 try
                 {
                     SqlCommand cmd = new SqlCommand("reg_Stock", cConn);
@@ -36,6 +36,42 @@ namespace CapaDatos
                     return QRes;
                 }
             }
+        }
+        public static List<Libro> obtenerLibros()
+        {
+            List<Libro> libros = new List<Libro>();
+            using (SqlConnection cConn = new SqlConnection(Conexion.cn))
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("get_Stock", cConn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cConn.Open();
+                    SqlDataReader read = cmd.ExecuteReader();
+                    while (read.Read())
+                    {
+                        libros.Add(new Libro()
+                        {
+                            IdLote = Convert.ToInt32(read["IdItem"]),
+                            IdProducto = Convert.ToInt32(read["IdProducto"]),
+                            Name = read["Descripcion"].ToString(),
+                            Unidades = Convert.ToInt32(read["Unidades"]),
+                            Paquetes = Convert.ToInt32(read["Paquetes"]),
+                            UnidadPaquete = Convert.ToInt32(read["UnidadPaquete"]),
+                            PrecioPaquete = Convert.ToDouble(read["PrecioPaquete"]),
+                            fechaRegistro = read["FechaRegistro"].ToString()
+                        });
+                    }
+
+                    return libros;
+                }
+                catch (Exception ex)
+                {
+                    return libros;
+                }
+            }
+
         }
     }
 }
