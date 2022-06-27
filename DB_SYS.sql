@@ -106,7 +106,7 @@ CREATE TABLE [dbo].[INPUTS] (
   [UnidadPaquete] int NOT NULL,
   [PrecioPaquete] float (30) default(0),
   [PrecioTotal] float (30) default(0),
-  [FechaRegistro] datetime DEFAULT getdate() NULL
+  [FechaRegistro] varchar(100) DEFAULT getdate() NULL
 )
 GO
 

@@ -269,18 +269,30 @@ BEGIN CATCH
 END CATCH
 GO
 --********************* --------------------- *********************
---********************* procedure structures for **********
+--********************* procedure structures for INPUT**********
 --********************* --------------------- *********************
 -- ----------------------------
--- procedure structure for get_Provider
+-- procedure structure for reg_INPUT
 -- ----------------------------
-IF EXISTS (SELECT * FROM sys.all_objects WHERE object_id = OBJECT_ID(N'[dbo].[get_Provider]') AND type IN ('P', 'PC', 'RF', 'X'))
-	DROP PROCEDURE[dbo].[get_Provider]
+IF EXISTS (SELECT * FROM sys.all_objects WHERE object_id = OBJECT_ID(N'[dbo].[reg_INPUT]') AND type IN ('P', 'PC', 'RF', 'X'))
+	DROP PROCEDURE[dbo].[reg_INPUT]
 GO
 
-CREATE PROCEDURE [dbo].[get_Provider]
-as
-begin
- select [IdProveedor],[Tipo],[Descripcion],[Dui],[Nit],[FechaRegistro] from [dbo].[PROVIDER]
-end
+CREATE PROCEDURE [dbo].[reg_INPUT]
+(
+@Descripcion varchar (100),
+@IdProveedor int,
+@UnidadPaquete int,
+@PrecioPaquete int,
+@FechaRegistro varchar (100),
+@Result bit output
+)
+AS
+SET @Result = 0
+BEGIN TRY
+	INSERT INTO [dbo].[PRODUCTS] ([Descripcion],[IdProveedor],[UnidadPaquete],[PrecioPaquete],[FechaRegistro]) VALUES (@Descripcion,@IdProveedor,@UnidadPaquete,@PrecioPaquete,@FechaRegistro)
+END TRY
+BEGIN CATCH
+	SET @Result = 1
+END CATCH
 GO

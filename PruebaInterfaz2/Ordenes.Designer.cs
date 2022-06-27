@@ -32,7 +32,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.cb_Productos = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnEliminar = new FontAwesome.Sharp.IconButton();
+            this.btnGrabar = new FontAwesome.Sharp.IconButton();
             this.panel7 = new System.Windows.Forms.Panel();
             this.btnAgregar = new FontAwesome.Sharp.IconButton();
             this.txt_IdProduct = new System.Windows.Forms.TextBox();
@@ -74,7 +74,7 @@
             // 
             this.panel2.Controls.Add(this.cb_Productos);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.btnEliminar);
+            this.panel2.Controls.Add(this.btnGrabar);
             this.panel2.Controls.Add(this.panel7);
             this.panel2.Controls.Add(this.btnAgregar);
             this.panel2.Controls.Add(this.txt_IdProduct);
@@ -123,28 +123,29 @@
             this.label1.TabIndex = 72;
             this.label1.Text = "Producto";
             // 
-            // btnEliminar
+            // btnGrabar
             // 
-            this.btnEliminar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.btnGrabar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEliminar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.btnEliminar.FlatAppearance.BorderSize = 2;
-            this.btnEliminar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnEliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnEliminar.ForeColor = System.Drawing.Color.White;
-            this.btnEliminar.IconChar = FontAwesome.Sharp.IconChar.Eraser;
-            this.btnEliminar.IconColor = System.Drawing.Color.White;
-            this.btnEliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnEliminar.IconSize = 30;
-            this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnEliminar.Location = new System.Drawing.Point(18, 386);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(311, 43);
-            this.btnEliminar.TabIndex = 67;
-            this.btnEliminar.Text = "Finalizar orden";
-            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnGrabar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnGrabar.FlatAppearance.BorderSize = 2;
+            this.btnGrabar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnGrabar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnGrabar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGrabar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnGrabar.ForeColor = System.Drawing.Color.White;
+            this.btnGrabar.IconChar = FontAwesome.Sharp.IconChar.Eraser;
+            this.btnGrabar.IconColor = System.Drawing.Color.White;
+            this.btnGrabar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnGrabar.IconSize = 30;
+            this.btnGrabar.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnGrabar.Location = new System.Drawing.Point(18, 386);
+            this.btnGrabar.Name = "btnGrabar";
+            this.btnGrabar.Size = new System.Drawing.Size(311, 43);
+            this.btnGrabar.TabIndex = 67;
+            this.btnGrabar.Text = "Finalizar orden";
+            this.btnGrabar.UseVisualStyleBackColor = true;
+            this.btnGrabar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // panel7
             // 
@@ -380,7 +381,7 @@
         private Panel panel1;
         private TextBox txtTotal;
         public TextBox txtProveedor;
-        private FontAwesome.Sharp.IconButton btnEliminar;
+        private FontAwesome.Sharp.IconButton btnGrabar;
         private FontAwesome.Sharp.IconButton btnAgregar;
         private DataGridView DT_Ordenes;
         private ComboBox cb_Productos;

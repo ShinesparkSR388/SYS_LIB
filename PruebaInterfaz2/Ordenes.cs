@@ -27,15 +27,16 @@ namespace PruebaInterfaz2
             DT_Ordenes.Columns.Clear();
             DT_Ordenes.DataSource = null;
 
-            DT_Ordenes.Rows.Add("Id Producto",);
-            DT_Ordenes.Rows.Add("Id Proveedor",);
-            DT_Ordenes.Rows.Add("Nombre",);
-            DT_Ordenes.Rows.Add("Paquetes",);
-            DT_Ordenes.Rows.Add("Total",);
+            DT_Ordenes.Columns.Add("Id Producto", "Id Producto");
+            DT_Ordenes.Columns.Add("Id Proveedor", "Id Proveedor");
+            DT_Ordenes.Columns.Add("Nombre", "Nombre");
+            DT_Ordenes.Columns.Add("Paquetes", "Paquetes");
+            DT_Ordenes.Columns.Add("Total", "Total");
 
             foreach (var order in ordenes)
             {
                 string[] val = {order.IdProducto.ToString(),order.IdProveedor.ToString(),order.Name.ToString(),order.Paquetes.ToString(),order.Total.ToString()};
+                DT_Ordenes.Rows.Add(val);
             }
         }
 
@@ -129,6 +130,12 @@ namespace PruebaInterfaz2
         private void btnModificar_Click(object sender, EventArgs e)
         {
             ordenes.Add(articulo_actual);
+            mostrarDatos();
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
