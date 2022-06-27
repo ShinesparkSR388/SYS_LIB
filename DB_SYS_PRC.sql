@@ -280,19 +280,39 @@ GO
 
 CREATE PROCEDURE [dbo].[reg_INPUT]
 (
-@Descripcion varchar (100),
-@IdProveedor int,
-@UnidadPaquete int,
-@PrecioPaquete int,
-@FechaRegistro varchar (100),
+@IdProveedor int ,
+@IdProducto int ,
+@Descripcion varchar(100),
+@Paquetes int ,
+@UnidadPaquete int ,
+@PrecioPaquete float (30),
+@PrecioTotal float (30),
+@FechaRegistro varchar(100),
 @Result bit output
 )
 AS
 SET @Result = 0
 BEGIN TRY
-	INSERT INTO [dbo].[PRODUCTS] ([Descripcion],[IdProveedor],[UnidadPaquete],[PrecioPaquete],[FechaRegistro]) VALUES (@Descripcion,@IdProveedor,@UnidadPaquete,@PrecioPaquete,@FechaRegistro)
+
+	INSERT INTO [dbo].[INPUTS] ([IdProveedor],[IdProducto],[Descripcion],[Paquetes],[UnidadPaquete],[PrecioPaquete],[PrecioTotal],[FechaRegistro]) VALUES (@IdProveedor,@IdProducto,@Descripcion,@Paquetes,@UnidadPaquete,@PrecioPaquete,@PrecioTotal,@FechaRegistro)
 END TRY
 BEGIN CATCH
 	SET @Result = 1
 END CATCH
+GO
+--********************* --------------------- *********************
+--********************* procedure structures for STOCK**********
+--********************* --------------------- *********************
+-- ----------------------------
+-- procedure structure for get_Stock
+-- ----------------------------
+IF EXISTS (SELECT * FROM sys.all_objects WHERE object_id = OBJECT_ID(N'[dbo].[get_Stock]') AND type IN ('P', 'PC', 'RF', 'X'))
+	DROP PROCEDURE[dbo].[get_Stock]
+GO
+
+CREATE PROCEDURE [dbo].[get_Stock]
+as
+begin
+ select * from [dbo].[STOCK]
+end
 GO
