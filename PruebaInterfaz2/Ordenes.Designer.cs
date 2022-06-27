@@ -145,7 +145,7 @@
             this.btnGrabar.TabIndex = 67;
             this.btnGrabar.Text = "Finalizar orden";
             this.btnGrabar.UseVisualStyleBackColor = true;
-            this.btnGrabar.Click += new System.EventHandler(this.btnEliminar_Click);
+            this.btnGrabar.Click += new System.EventHandler(this.btnGrabar_Click);
             // 
             // panel7
             // 
@@ -180,7 +180,7 @@
             this.btnAgregar.TabIndex = 66;
             this.btnAgregar.Text = "Agregar paquete";
             this.btnAgregar.UseVisualStyleBackColor = true;
-            this.btnAgregar.Click += new System.EventHandler(this.btnModificar_Click);
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // txt_IdProduct
             // 

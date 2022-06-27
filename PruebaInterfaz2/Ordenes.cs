@@ -110,9 +110,22 @@ namespace PruebaInterfaz2
                 i++;
             }
         }
+        private void Limpiar()
+        {
+            txt_IdProduct.Text = "";
+            txtProveedor.Text = "";
+            txtPaquetes.Text = "";
+            txtNombre.Text = "";
+            txtTotal.Text = "";
+            articulo_actual = null;
+            articulo_actual = new Orden();
+        }
 
         private void txtPaquetes_TextChanged(object sender, EventArgs e)
         {
+            if(articulo_actual.PrecioPaquete != 0)
+            {
+            
             try
             {
                 txtTotal.Text = (Convert.ToInt32(txtPaquetes.Text) * articulo_actual.PrecioPaquete).ToString();
@@ -122,21 +135,22 @@ namespace PruebaInterfaz2
             }
             catch (Exception)
             {
-                articulo_actual.Total = 0;
                 btnAgregar.Enabled = false;
+            }
+
             }
         }
 
-        private void btnModificar_Click(object sender, EventArgs e)
+        private void btnAgregar_Click(object sender, EventArgs e)
         {
             articulo_actual.FechaRegistro = (DateTime.Now).ToString();
             ordenes.Add(articulo_actual);
             mostrarDatos();
-            articulo_actual = new Orden();
             btnAgregar.Enabled=false;
+            Limpiar();
         }
 
-        private void btnEliminar_Click(object sender, EventArgs e)
+        private void btnGrabar_Click(object sender, EventArgs e)
         {
             bool ver1, ver2;
 
@@ -163,6 +177,7 @@ namespace PruebaInterfaz2
             ordenes.Clear();
             btnAgregar.Enabled=false;
             mostrarDatos();
+            Limpiar();
 
         }
     }
