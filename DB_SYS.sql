@@ -1,15 +1,28 @@
 /*
  Source Server Type    : SQL Server
- Source Server Version : 15002000
  Source Catalog        : DB_SYS
  Source Schema         : dbo
- File Encoding         : 65001
-
  Date: 16/06/2022 15:51:11
 */
 
+----------------------------
+--***FOREIGN KEY TABLES***--
+----------------------------
+IF EXISTS (SELECT * FROM sys.all_objects WHERE object_id = OBJECT_ID(N'[dbo].[OUTPUTS]') AND type IN ('U','PK','F'))
+	DROP TABLE [dbo].[OUTPUTS]
+GO
 
+IF EXISTS (SELECT * FROM sys.all_objects WHERE object_id = OBJECT_ID(N'[dbo].[STOCK]') AND type IN ('U','PK','F'))
+	DROP TABLE [dbo].[STOCK]
+GO
 
+IF EXISTS (SELECT * FROM sys.all_objects WHERE object_id = OBJECT_ID(N'[dbo].[INPUTS]') AND type IN ('U','PK','F'))
+	DROP TABLE [dbo].[INPUTS]
+GO
+
+IF EXISTS (SELECT * FROM sys.all_objects WHERE object_id = OBJECT_ID(N'[dbo].[PRODUCTS]') AND type IN ('U','PK','F'))
+	DROP TABLE [dbo].[PRODUCTS]
+GO
 -- ----------------------------
 -- Table structure for PROVIDER
 -- ----------------------------
@@ -21,8 +34,8 @@ CREATE TABLE [dbo].[PROVIDER] (
   [IdProveedor] int primary key IDENTITY(1,1) NOT NULL,
   [Tipo] int NOT NULL default(0),
   [Descripcion] varchar(100) COLLATE Modern_Spanish_CI_AS  NULL,
-  [Dui] int default (0),
-  [Nit] int default (0),
+  [Dui] numeric(18,0) default (0),
+  [Nit] numeric(18,0) default (0),
   [FechaRegistro] varchar(100) DEFAULT getdate() NULL
 )
 GO
@@ -32,9 +45,6 @@ GO
 -- ----------------------------
 -- Table structure for PRODUCTS
 -- ----------------------------
-IF EXISTS (SELECT * FROM sys.all_objects WHERE object_id = OBJECT_ID(N'[dbo].[PRODUCTS]') AND type IN ('U','PK','F'))
-	DROP TABLE [dbo].[PRODUCTS]
-GO
 
 CREATE TABLE [dbo].[PRODUCTS] (
   [IdProducto] int primary key IDENTITY(1,1) NOT NULL,
@@ -51,9 +61,6 @@ GO
 -- ----------------------------
 -- Table structure for STOCK
 -- ----------------------------
-IF EXISTS (SELECT * FROM sys.all_objects WHERE object_id = OBJECT_ID(N'[dbo].[STOCK]') AND type IN ('U','PK','F'))
-	DROP TABLE [dbo].[STOCK]
-GO
 
 CREATE TABLE [dbo].[STOCK] (
   [IdItem] int primary key IDENTITY(1,1) NOT NULL,
@@ -71,31 +78,8 @@ ALTER TABLE [dbo].[STOCK] SET (LOCK_ESCALATION = TABLE)
 GO
 
 -- ----------------------------
--- Table structure for POS_ORDER
--- ----------------------------
-IF EXISTS (SELECT * FROM sys.all_objects WHERE object_id = OBJECT_ID(N'[dbo].[POS_ORDER]') AND type IN ('U','PK','F'))
-	DROP TABLE [dbo].[POS_ORDER]
-GO
-
-CREATE TABLE [dbo].[POS_ORDER] (
-  [IdOrden] int primary key IDENTITY(1,1) NOT NULL,
-  [IdProducto] int foreign key references PRODUCTS(IdProducto),
-  [Descripcion] varchar(100) COLLATE Modern_Spanish_CI_AS NULL,
-  [Unidades] int NOT NULL,
-  [PrecioUnitario] float (30) default(0),
-  [PrecioTotal] float (30) default(0),
-  [FechaRegistro] datetime DEFAULT getdate() NULL
-)
-GO
-
-ALTER TABLE [dbo].[POS_ORDER] SET (LOCK_ESCALATION = TABLE)
-GO
--- ----------------------------
 -- Table structure for INPUTS
 -- ----------------------------
-IF EXISTS (SELECT * FROM sys.all_objects WHERE object_id = OBJECT_ID(N'[dbo].[INPUTS]') AND type IN ('U','PK','F'))
-	DROP TABLE [dbo].[INPUTS]
-GO
 
 CREATE TABLE [dbo].[INPUTS] (
   [IdEntrada] int primary key IDENTITY(1,1) NOT NULL,
@@ -115,9 +99,6 @@ GO
 -- ----------------------------
 -- Table structure for OUTPUTS
 -- ----------------------------
-IF EXISTS (SELECT * FROM sys.all_objects WHERE object_id = OBJECT_ID(N'[dbo].[OUTPUTS]') AND type IN ('U','PK','F'))
-	DROP TABLE [dbo].[OUTPUTS]
-GO
 
 CREATE TABLE [dbo].[OUTPUTS] (
   [IdVenta] int primary key IDENTITY(1,1) NOT NULL,

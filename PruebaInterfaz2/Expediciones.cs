@@ -66,30 +66,46 @@ namespace PruebaInterfaz2
                 DT_Ventas.Rows.Add(val);
             }
         }
+        private void ErrorSet(bool error, string message)
+        {
+            if (error)
+            {
+                this.error1.SetError(lblError1, message);
+                this.error2.SetError(lblError2, message);
+                return;
+            }
+            this.error1.Clear();
+            this.error2.Clear();
+        }
         private void Validar_Calculos(bool val)
         {
             try
             {
-                int i = Libro_actual.Paquetes - Convert.ToInt32(txtPaquetes.Text);
+                int i = Libro_actual.Paquetes - System.Convert.ToInt32(txtPaquetes.Text);
                 if (i < 0)
                 {
+                    ErrorSet(true,"Los paquetes ingresada no deben sobrepasar la cantidad de paquetes disponibles");
                     return;
+
                 }
-                venta.Paquetes = Convert.ToInt32(txtPaquetes.Text);
-                if (Convert.ToInt32(txtUnidades.Text) > Libro_actual.UnidadPaquete)
+                venta.Paquetes = System.Convert.ToInt32(txtPaquetes.Text);
+                if (System.Convert.ToInt32(txtUnidades.Text) > Libro_actual.UnidadPaquete)
                 {
+                    ErrorSet(true, "La cantidad de libros debe ser menor a la cantidad por paquete (Ingrese el excedente en los paquetes)");
                     return;
                 }
-                i = Libro_actual.Unidades - Convert.ToInt32(txtUnidades.Text);
+                i = Libro_actual.Unidades - System.Convert.ToInt32(txtUnidades.Text);
                 if (i < 0)
                 {
                     if (Libro_actual.Paquetes == venta.Paquetes)
                     {
+                        ErrorSet(true,"La cantidad de libros y paquetes sobrepasa a las existencias");
                         return;
                     }
 
                 }
-                venta.Unidades = Convert.ToInt32(txtUnidades.Text);
+                ErrorSet(false,"");
+                venta.Unidades = System.Convert.ToInt32(txtUnidades.Text);
                 venta.PrecioTotal = (venta.Paquetes * Libro_actual.PrecioPaquete) + (venta.Unidades * (Libro_actual.PrecioPaquete / Libro_actual.UnidadPaquete));
                 txtTotal.Text = venta.PrecioTotal.ToString();
                 btnGuardar.Enabled = true;
@@ -130,7 +146,7 @@ namespace PruebaInterfaz2
             venta = null;
             venta = new Venta();
             if (e.RowIndex == -1) { return; }
-            Libro_actual.IdProducto = Convert.ToInt32(DT_Productos.Rows[e.RowIndex].Cells["Id"].Value);
+            Libro_actual.IdProducto = System.Convert.ToInt32(DT_Productos.Rows[e.RowIndex].Cells["Id"].Value);
             libros = FD_Stock.obtenerLibros();
             foreach (var item in libros)
             {
@@ -203,7 +219,7 @@ namespace PruebaInterfaz2
         {
             try
             {
-                IdIndex = Convert.ToInt32(DT_Ventas.Rows[e.RowIndex].Cells["Id"].Value);
+                IdIndex = System.Convert.ToInt32(DT_Ventas.Rows[e.RowIndex].Cells["Id"].Value);
                 btnQuitar.Enabled = true;
             }
             catch (Exception ex)
@@ -260,6 +276,11 @@ namespace PruebaInterfaz2
                 MostrarDatos();
                 MostrarDatos_Venta(ventas);
             }
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

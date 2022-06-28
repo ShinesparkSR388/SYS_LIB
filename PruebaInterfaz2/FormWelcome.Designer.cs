@@ -59,11 +59,11 @@ partial class FormWelcome
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Patchwork Stitchlings", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.DarkGray;
             this.label1.Location = new System.Drawing.Point(206, 22);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(713, 59);
+            this.label1.Size = new System.Drawing.Size(311, 36);
             this.label1.TabIndex = 1;
             this.label1.Text = "LIBRERIA ANFERMO";
             // 
@@ -80,11 +80,11 @@ partial class FormWelcome
             // lblUsuario
             // 
             this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Font = new System.Drawing.Font("Patchwork Stitchlings", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblUsuario.ForeColor = System.Drawing.Color.DarkGray;
             this.lblUsuario.Location = new System.Drawing.Point(337, 110);
             this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(713, 59);
+            this.lblUsuario.Size = new System.Drawing.Size(311, 36);
             this.lblUsuario.TabIndex = 1;
             this.lblUsuario.Text = "LIBRERIA ANFERMO";
             // 
@@ -130,6 +130,7 @@ partial class FormWelcome
             this.circularProgressBar1.Text = "0";
             this.circularProgressBar1.TextMargin = new System.Windows.Forms.Padding(8, 8, 0, 0);
             this.circularProgressBar1.Value = 68;
+            this.circularProgressBar1.Click += new System.EventHandler(this.circularProgressBar1_Click);
             // 
             // timer3
             // 

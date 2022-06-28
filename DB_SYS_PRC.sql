@@ -47,8 +47,8 @@ END TRY
 BEGIN CATCH
 SET @Resultado = 0
 END CATCH
-
 GO
+
 -- ----------------------------
 -- procedure structure for upd_Provider
 -- ----------------------------
@@ -180,7 +180,6 @@ END
 GO
 EXEC reg_User 'user','123',1,1
 EXEC reg_User 'admin','123',1,1
-EXEC reg_User '','',1,1
 
 --********************* --------------------- *********************
 --********************* procedure structures for PRODUCTS *********
@@ -226,7 +225,7 @@ CREATE PROCEDURE [dbo].[reg_Products]
 @Descripcion varchar (100),
 @IdProveedor int,
 @UnidadPaquete int,
-@PrecioPaquete int,
+@PrecioPaquete float,
 @FechaRegistro varchar (100),
 @Result bit output
 )
@@ -252,7 +251,7 @@ CREATE PROCEDURE [dbo].[upd_Products]
 @IdProveedor int,
 @Descripcion varchar (100),
 @UnidadPaquete int,
-@PrecioPaquete int,
+@PrecioPaquete float,
 @Result bit output
 )
 AS
@@ -462,8 +461,3 @@ BEGIN CATCH
 	SET @Result = 1
 END CATCH
 GO
-SELECT * FROM INPUTS
-SELECT * FROM PRODUCTS
-
-SELECT * FROM OUTPUTS
-SELECT * FROM STOCK

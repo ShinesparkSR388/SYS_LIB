@@ -32,7 +32,6 @@
             this.panelContenedor = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnEliminar = new FontAwesome.Sharp.IconButton();
             this.btnModificar = new FontAwesome.Sharp.IconButton();
             this.btnGuardar = new FontAwesome.Sharp.IconButton();
             this.cb_Tipo = new System.Windows.Forms.ComboBox();
@@ -44,7 +43,6 @@
             this.txt_Name = new System.Windows.Forms.TextBox();
             this.txt_Dui = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.icBuscar = new FontAwesome.Sharp.IconButton();
             this.DT_Provider = new System.Windows.Forms.DataGridView();
             this.panel7 = new System.Windows.Forms.Panel();
             this.txtBuscar = new System.Windows.Forms.TextBox();
@@ -83,7 +81,6 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.btnEliminar);
             this.panel1.Controls.Add(this.btnModificar);
             this.panel1.Controls.Add(this.btnGuardar);
             this.panel1.Controls.Add(this.cb_Tipo);
@@ -99,31 +96,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(373, 602);
             this.panel1.TabIndex = 0;
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEliminar.Enabled = false;
-            this.btnEliminar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.btnEliminar.FlatAppearance.BorderSize = 2;
-            this.btnEliminar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnEliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnEliminar.ForeColor = System.Drawing.Color.White;
-            this.btnEliminar.IconChar = FontAwesome.Sharp.IconChar.Eraser;
-            this.btnEliminar.IconColor = System.Drawing.Color.White;
-            this.btnEliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnEliminar.IconSize = 30;
-            this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnEliminar.Location = new System.Drawing.Point(19, 480);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(311, 43);
-            this.btnEliminar.TabIndex = 62;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = true;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnModificar
             // 
@@ -279,10 +251,10 @@
             this.txt_Dui.PlaceholderText = "DUI";
             this.txt_Dui.Size = new System.Drawing.Size(311, 25);
             this.txt_Dui.TabIndex = 51;
+            this.txt_Dui.TextChanged += new System.EventHandler(this.txt_Dui_TextChanged);
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.icBuscar);
             this.panel2.Controls.Add(this.DT_Provider);
             this.panel2.Controls.Add(this.panel7);
             this.panel2.Controls.Add(this.txtBuscar);
@@ -292,43 +264,21 @@
             this.panel2.Size = new System.Drawing.Size(717, 602);
             this.panel2.TabIndex = 1;
             // 
-            // icBuscar
-            // 
-            this.icBuscar.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.icBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.icBuscar.FlatAppearance.BorderSize = 0;
-            this.icBuscar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.icBuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.icBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.icBuscar.IconChar = FontAwesome.Sharp.IconChar.Search;
-            this.icBuscar.IconColor = System.Drawing.Color.White;
-            this.icBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.icBuscar.IconSize = 30;
-            this.icBuscar.Location = new System.Drawing.Point(597, 49);
-            this.icBuscar.Name = "icBuscar";
-            this.icBuscar.Size = new System.Drawing.Size(82, 52);
-            this.icBuscar.TabIndex = 50;
-            this.icBuscar.UseVisualStyleBackColor = true;
-            this.icBuscar.Click += new System.EventHandler(this.iconButton1_Click);
-            this.icBuscar.MouseLeave += new System.EventHandler(this.iconButton1_MouseLeave);
-            this.icBuscar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.iconButton1_MouseMove);
-            // 
             // DT_Provider
             // 
+            this.DT_Provider.AllowUserToAddRows = false;
             this.DT_Provider.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.DT_Provider.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DT_Provider.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DT_Provider.Location = new System.Drawing.Point(20, 107);
             this.DT_Provider.Name = "DT_Provider";
+            this.DT_Provider.ReadOnly = true;
+            this.DT_Provider.RowHeadersVisible = false;
             this.DT_Provider.RowHeadersWidth = 51;
             this.DT_Provider.RowTemplate.Height = 29;
             this.DT_Provider.Size = new System.Drawing.Size(671, 416);
-            this.DT_Provider.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            this.DT_Provider.ReadOnly = true;
-            this.DT_Provider.AllowUserToAddRows = false;
-            this.DT_Provider.RowHeadersVisible = false;
-            this.DT_Provider.AllowUserToOrderColumns = false;
             this.DT_Provider.TabIndex = 49;
             this.DT_Provider.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DT_Provider_CellContentClick);
             this.DT_Provider.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DT_Provider_CellContentClick_1);
@@ -337,7 +287,7 @@
             // 
             this.panel7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panel7.BackColor = System.Drawing.Color.DimGray;
-            this.panel7.Location = new System.Drawing.Point(280, 94);
+            this.panel7.Location = new System.Drawing.Point(378, 94);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(311, 2);
             this.panel7.TabIndex = 48;
@@ -349,9 +299,9 @@
             this.txtBuscar.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtBuscar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtBuscar.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.txtBuscar.Location = new System.Drawing.Point(280, 68);
+            this.txtBuscar.Location = new System.Drawing.Point(378, 68);
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.PlaceholderText = "Buscar por Nombre";
+            this.txtBuscar.PlaceholderText = "Buscar por ID";
             this.txtBuscar.Size = new System.Drawing.Size(311, 25);
             this.txtBuscar.TabIndex = 47;
             this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
@@ -387,7 +337,6 @@
         private TableLayoutPanel tableLayoutPanel1;
         private Panel panel1;
         private Panel panel2;
-        private FontAwesome.Sharp.IconButton btnEliminar;
         private FontAwesome.Sharp.IconButton btnModificar;
         private FontAwesome.Sharp.IconButton btnGuardar;
         private ComboBox cb_Tipo;
@@ -398,7 +347,6 @@
         private TextBox txt_Nit;
         private TextBox txt_Name;
         private TextBox txt_Dui;
-        private FontAwesome.Sharp.IconButton icBuscar;
         private DataGridView DT_Provider;
         private Panel panel7;
         private TextBox txtBuscar;

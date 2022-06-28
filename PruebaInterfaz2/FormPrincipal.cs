@@ -183,8 +183,8 @@ namespace PruebaInterfaz2
 
             formularioActivo = formularioHijo;
             formularioHijo.TopLevel = false;
-            //formularioHijo.FormBorderStyle = FormBorderStyle.None;
-            //formularioHijo.Dock = DockStyle.Fill;
+            formularioHijo.FormBorderStyle = FormBorderStyle.None;
+            formularioHijo.Dock = DockStyle.Fill;
             panelFormularios.Controls.Add(formularioHijo);
             panelFormularios.Tag = formularioHijo;
             formularioHijo.BringToFront();
@@ -266,14 +266,11 @@ namespace PruebaInterfaz2
 
         private void btnPostOrden_Click(object sender, EventArgs e)
         {
-            //AbrirFormulario<PostOrden>();
-            AbrirForm(new PostOrden());
         }
 
         private void btnProveedores_Click(object sender, EventArgs e)
         {
-            //AbrirFormulario<Proveedores>();
-            AbrirForm(new Proveedores());
+            
         }
 
         private void btnEstadisticasRecepciones_Click(object sender, EventArgs e)
@@ -283,8 +280,40 @@ namespace PruebaInterfaz2
 
         private void iconButton3_Click(object sender, EventArgs e)
         {
+        }
+
+        private void iconButton2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panelSubMenu2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void iconButton3_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void iconButton3_Click_2(object sender, EventArgs e)
+        {
             //AbrirFormulario<Productos>();
             AbrirForm(new Productos());
+
+        }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+
+            
+        }
+
+        private void iconButton1_Click_1(object sender, EventArgs e)
+        {
+            //AbrirFormulario<Proveedores>();
+            AbrirForm(new Proveedores());
         }
     }
 }

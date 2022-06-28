@@ -1,6 +1,6 @@
-﻿using System.Globalization;
-using CapaDatos;
+﻿using CapaDatos;
 using CapaModelo;
+using System.Globalization;
 
 namespace PruebaInterfaz2
 {
@@ -37,27 +37,20 @@ namespace PruebaInterfaz2
             string tipo;
             foreach (var pr in proveedors)
             {
+                string Dui = "", Nit = "";
                 if (pr.Tipo == 1)
                 {
                     tipo = "Negocio Formal";
+                    Nit = pr.Nit.ToString();
                 }
                 else
                 {
                     tipo = "Persona Natural";
+                    Dui = pr.Dui.ToString();
                 }
-                object[] valores = { pr.Id.ToString(), tipo, pr.Descripcion, pr.Dui.ToString(), pr.Nit.ToString(), pr.Registro };
+                object[] valores = { pr.Id.ToString(), tipo, pr.Descripcion, Dui, Nit, pr.Registro };
                 DT_Provider.Rows.Add(valores);
             }
-        }
-
-        private void iconButton1_MouseMove(object sender, MouseEventArgs e)
-        {
-            icBuscar.IconSize = 45;
-        }
-
-        private void iconButton1_MouseLeave(object sender, EventArgs e)
-        {
-            icBuscar.IconSize = 30;
         }
 
         private void Proveedores_Resize(object sender, EventArgs e)
@@ -74,11 +67,11 @@ namespace PruebaInterfaz2
                 prov.Descripcion = txt_Name.Text;
                 if (cb_Tipo.Text.Equals("Persona Natural"))
                 {
-                    prov.Dui = Convert.ToInt64(txt_Dui.Text);
+                    prov.Dui = System.Convert.ToInt64(txt_Dui.Text);
                 }
                 else if (cb_Tipo.Text.Equals("Empresa"))
                 {
-                    prov.Nit = Convert.ToInt64(txt_Nit.Text);
+                    prov.Nit = System.Convert.ToInt64(txt_Nit.Text);
                 }
                 bool i = FD_Proveedores.GuardarProveedores(prov);
                 MostrarDatos(FD_Proveedores.ObtenerProveedores());
@@ -103,11 +96,11 @@ namespace PruebaInterfaz2
                 prov.Descripcion = txt_Name.Text;
                 if (cb_Tipo.Text == @"Persona Natural")
                 {
-                    prov.Dui = Convert.ToInt64(txt_Dui.Text);
+                    prov.Dui = System.Convert.ToInt64(txt_Dui.Text);
                 }
                 else if (cb_Tipo.Text == @"Empresa")
                 {
-                    prov.Nit = Convert.ToInt64(txt_Nit.Text);
+                    prov.Nit = System.Convert.ToInt64(txt_Nit.Text);
                 }
                 bool i = FD_Proveedores.ModificarProveedores(prov);
                 MostrarDatos(FD_Proveedores.ObtenerProveedores());
@@ -120,8 +113,7 @@ namespace PruebaInterfaz2
                     MessageBox.Show(@"Error al modificar");//error de procedimiento almacenado
                 }
                 btnGuardar.Enabled = true;
-                btnEliminar.Enabled = false;
-                icBuscar.Enabled = true;
+                txtBuscar.Enabled = true;
                 btnModificar.Enabled = false;
             }
 
@@ -131,14 +123,13 @@ namespace PruebaInterfaz2
         {
             try
             {
-                prov.Id = Convert.ToInt32(DT_Provider.Rows[e.RowIndex].Cells["IdProveedor"].Value);
+                prov.Id = System.Convert.ToInt32(DT_Provider.Rows[e.RowIndex].Cells["IdProveedor"].Value);
                 txt_Dui.Text = DT_Provider.Rows[e.RowIndex].Cells["Dui"].Value.ToString();
                 txt_Name.Text = DT_Provider.Rows[e.RowIndex].Cells["Descripcion"].Value.ToString();
                 txt_Nit.Text = DT_Provider.Rows[e.RowIndex].Cells["Nit"].Value.ToString();
                 cb_Tipo.Text = DT_Provider.Rows[e.RowIndex].Cells["Tipo"].Value.ToString();
                 btnGuardar.Enabled = false;
-                btnEliminar.Enabled = true;
-                icBuscar.Enabled = false;
+                txtBuscar.Enabled = false;
                 btnModificar.Enabled = true;
 
                 MostrarDatos(FD_Proveedores.BuscarProveedores(prov.Id));
@@ -153,38 +144,44 @@ namespace PruebaInterfaz2
 
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
-            if (txtBuscar.Text == "")
+            try
             {
-                MostrarDatos(FD_Proveedores.ObtenerProveedores());
+                if (txtBuscar.Text != "")
+                {
+                    MostrarDatos(FD_Proveedores.BuscarProveedores(System.Convert.ToInt32(txtBuscar.Text)));
+                }
+                else
+                {
+                    MostrarDatos(FD_Proveedores.ObtenerProveedores());
+                }
+
+            }
+            catch (Exception)
+            {
+
             }
         }
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
-            if (txtBuscar.Text != "")
+            try
             {
-                MostrarDatos(FD_Proveedores.BuscarProveedores(Convert.ToInt32(txtBuscar.Text)));
+                if (txtBuscar.Text != "")
+                {
+                    MostrarDatos(FD_Proveedores.BuscarProveedores(System.Convert.ToInt32(txtBuscar.Text)));
+                }
+                else
+                {
+                    MostrarDatos(FD_Proveedores.ObtenerProveedores());
+                }
+
             }
-            else
+            catch (Exception)
             {
-                MostrarDatos(FD_Proveedores.ObtenerProveedores());
+
             }
 
 
-        }
-
-        private void btnEliminar_Click(object sender, EventArgs e)
-        {
-            bool i = FD_Proveedores.EliminarProveedores(prov.Id);
-            if (i)
-            {
-                MessageBox.Show(@$"Proveedor {prov.Descripcion} eliminado");
-            }
-            else
-            {
-                MessageBox.Show(@"Error al modificar");//error de procedimiento almacenado
-            }
-            MostrarDatos(FD_Proveedores.ObtenerProveedores());
 
         }
         public bool ValidarCampos()
@@ -222,8 +219,8 @@ namespace PruebaInterfaz2
             {
                 try
                 {
-                    Convert.ToInt64(txt_Dui.Text);
-                    if (Convert.ToInt64(txt_Dui.Text) >= 1000000000)
+                    System.Convert.ToInt64(txt_Dui.Text);
+                    if ((txt_Dui.Text).Length != 9)
                     {
                         MessageBox.Show(@"Dui invalido, (debe contener 9 digitos del 0 al 9)");
                         return true;
@@ -239,8 +236,8 @@ namespace PruebaInterfaz2
             {
                 try
                 {
-                    Convert.ToInt64(txt_Nit.Text);
-                    if (Convert.ToInt64(txt_Nit.Text) >= 100000000000000)
+                    System.Convert.ToInt64(txt_Nit.Text);
+                    if ((txt_Nit.Text).Length != 14)
                     {
                         MessageBox.Show(@"Nit invalido, (debe contener 14 digitos del 0 al 9)");
                         return true;
@@ -263,6 +260,7 @@ namespace PruebaInterfaz2
                 prov.Tipo = 0;
                 prov.Nit = 0;
                 txt_Nit.Enabled = false;
+                txt_Nit.Text = "";
                 txt_Dui.Enabled = true;
             }
             else if (cb_Tipo.Text.Equals("Empresa"))
@@ -271,6 +269,7 @@ namespace PruebaInterfaz2
                 prov.Dui = 0;
                 txt_Nit.Enabled = true;
                 txt_Dui.Enabled = false;
+                txt_Dui.Text = "";
             }
             else if (cb_Tipo.Text == "")
             {
@@ -280,6 +279,11 @@ namespace PruebaInterfaz2
         }
 
         private void DT_Provider_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void txt_Dui_TextChanged(object sender, EventArgs e)
         {
 
         }

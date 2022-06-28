@@ -27,7 +27,7 @@ namespace PruebaInterfaz2
             if(data == null) { return; }
             DT_Productos.Rows.Clear();
             DT_Productos.Columns.Clear();
-            DT_Productos.DataSource = null;
+            DT_Productos.DataSource = null;            
 
             DT_Productos.Columns.Add("Id", "Id");
             DT_Productos.Columns.Add("Nombre", "Nombre");
@@ -64,7 +64,7 @@ namespace PruebaInterfaz2
             }
             try
             {
-                if (Convert.ToInt32(txt_Unidades.Text) <= 0)
+                if (System.Convert.ToInt32(txt_Unidades.Text) <= 0)
                 {
                     MessageBox.Show("El numero de unidades por caja debe ser de 1 o mas");
                     return true;
@@ -78,7 +78,7 @@ namespace PruebaInterfaz2
             }
             try
             {
-                if (Convert.ToDouble(txt_Precio.Text) <= 0)
+                if (System.Convert.ToDouble(txt_Precio.Text) <= 0)
                 {
                     MessageBox.Show("El precio por caja debe ser mayor que 0");
                     return true;
@@ -107,7 +107,7 @@ namespace PruebaInterfaz2
             int i = 0;
             foreach (var provider in providers)
             {
-                if (i == Convert.ToInt32(cb_Proveedores.SelectedIndex.ToString()))
+                if (i == System.Convert.ToInt32(cb_Proveedores.SelectedIndex.ToString()))
                 {
                     txt_IdProvider.Text = provider.Id.ToString();
                 }
@@ -122,10 +122,10 @@ namespace PruebaInterfaz2
             {
                 return;
             }
-            actual.IdProveedor = Convert.ToInt32(txt_IdProvider.Text);
+            actual.IdProveedor = System.Convert.ToInt32(txt_IdProvider.Text);
             actual.Descripcion = txt_Nombre.Text;
-            actual.UnidadPaquete = Convert.ToInt32(txt_Unidades.Text);
-            actual.PrecioPaquete = Convert.ToDouble(txt_Precio.Text);
+            actual.UnidadPaquete = System.Convert.ToInt32(txt_Unidades.Text);
+            actual.PrecioPaquete = System.Convert.ToDouble(Conv.P_coma(txt_Precio.Text));
             actual.FechaRegistro = DateTime.Now.ToString();
 
             bool val = FD_Productos.GuardarProducto(actual);
@@ -144,15 +144,10 @@ namespace PruebaInterfaz2
         {
             if (e.RowIndex == -1) { return; }
             if(DT_Productos.Rows.Count < e.RowIndex) { return; }
-            DT_Productos.Columns.Add("Id", "Id");
-            DT_Productos.Columns.Add("Nombre", "Nombre");
-            DT_Productos.Columns.Add("Proveedor", "Proveedor");
-            DT_Productos.Columns.Add("Unidad/C", "Unidad/C");
-            DT_Productos.Columns.Add("Precio/C", "Precio/C");
             txt_Id.Text = DT_Productos.Rows[e.RowIndex].Cells["Id"].Value.ToString();
             prod = FD_Productos.ObtenerPoductos();
             foreach(Producto pv in prod){
-                if (pv.Id == Convert.ToInt32(txt_Id.Text))
+                if (pv.Id == System.Convert.ToInt32(txt_Id.Text))
                 {
                     txt_IdProvider.Text = pv.IdProveedor.ToString();
                 }
@@ -184,11 +179,11 @@ namespace PruebaInterfaz2
             {
                 return;
             }
-            actual.Id = Convert.ToInt32(txt_Id.Text);
-            actual.IdProveedor = Convert.ToInt32(txt_IdProvider.Text);
+            actual.Id = System.Convert.ToInt32(txt_Id.Text);
+            actual.IdProveedor = System.Convert.ToInt32(txt_IdProvider.Text);
             actual.Descripcion = txt_Nombre.Text;
-            actual.UnidadPaquete = Convert.ToInt32(txt_Unidades.Text);
-            actual.PrecioPaquete = Convert.ToDouble(txt_Precio.Text);
+            actual.UnidadPaquete = System.Convert.ToInt32(txt_Unidades.Text);
+            actual.PrecioPaquete = System.Convert.ToDouble(Conv.P_coma(txt_Precio.Text));
 
             bool val = FD_Productos.ModificarProducto(actual);
             if (val == false)
@@ -215,7 +210,16 @@ namespace PruebaInterfaz2
 
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
-            mostrarDatos(FD_Productos.BuscarProductos(txtBuscar.Text));
+            if(txtBuscar.Text != "")
+            {
+                mostrarDatos(FD_Productos.BuscarProductos(txtBuscar.Text));
+            }
+            else
+            {
+                mostrarDatos(FD_Productos.ObtenerPoductos());
+            }
+
+            
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

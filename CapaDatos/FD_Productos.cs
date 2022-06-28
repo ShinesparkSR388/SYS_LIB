@@ -23,12 +23,12 @@ namespace CapaDatos
                     {
                         products.Add(new Producto()
                         {
-                            Id = Convert.ToInt32(dr["IdProducto"].ToString()),
+                            Id = System.Convert.ToInt32(dr["IdProducto"].ToString()),
 #pragma warning disable CS8601 // Posible asignación de referencia nula
                             Descripcion = dr["Descripcion"].ToString(),
-                            IdProveedor = Convert.ToInt32(dr["IdProveedor"].ToString()),
-                            UnidadPaquete = Convert.ToInt32(dr["UnidadPaquete"].ToString()),
-                            PrecioPaquete = Convert.ToDouble(dr["PrecioPaquete"].ToString()),
+                            IdProveedor = System.Convert.ToInt32(dr["IdProveedor"].ToString()),
+                            UnidadPaquete = System.Convert.ToInt32(dr["UnidadPaquete"].ToString()),
+                            PrecioPaquete = System.Convert.ToDouble(dr["PrecioPaquete"].ToString()),
                             FechaRegistro = dr["FechaRegistro"].ToString()
 #pragma warning restore CS8601 // Posible asignación de referencia nula
                         });
@@ -60,12 +60,12 @@ namespace CapaDatos
                     {
                         products.Add(new Producto()
                         {
-                            Id = Convert.ToInt32(dr["IdProducto"].ToString()),
+                            Id = System.Convert.ToInt32(dr["IdProducto"].ToString()),
 #pragma warning disable CS8601 // Posible asignación de referencia nula
                             Descripcion = dr["Descripcion"].ToString(),
-                            IdProveedor = Convert.ToInt32(dr["IdProveedor"].ToString()),
-                            UnidadPaquete = Convert.ToInt32(dr["UnidadPaquete"].ToString()),
-                            PrecioPaquete = Convert.ToDouble(dr["PrecioPaquete"].ToString()),
+                            IdProveedor = System.Convert.ToInt32(dr["IdProveedor"].ToString()),
+                            UnidadPaquete = System.Convert.ToInt32(dr["UnidadPaquete"].ToString()),
+                            PrecioPaquete = System.Convert.ToDouble(dr["PrecioPaquete"].ToString()),
                             FechaRegistro = dr["FechaRegistro"].ToString()
 #pragma warning restore CS8601 // Posible asignación de referencia nula
                         });
@@ -99,7 +99,7 @@ namespace CapaDatos
                     cConn.Open();
                     cmd.ExecuteNonQuery();
 
-                    QRes = Convert.ToBoolean(cmd.Parameters["Result"].Value);
+                    QRes = System.Convert.ToBoolean(cmd.Parameters["Result"].Value);
 
                     return QRes;
                 }
@@ -129,7 +129,7 @@ namespace CapaDatos
                     cConn.Open();
                     cmd.ExecuteNonQuery();
 
-                    QRes = Convert.ToBoolean(cmd.Parameters["Result"].Value);
+                    QRes = System.Convert.ToBoolean(cmd.Parameters["Result"].Value);
 
                     return QRes;
                 }

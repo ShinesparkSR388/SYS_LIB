@@ -27,7 +27,7 @@ namespace CapaDatos
                     cConn.Open();
                     cmd.ExecuteNonQuery();
 
-                    QRes = Convert.ToBoolean(cmd.Parameters["Result"].Value);
+                    QRes = System.Convert.ToBoolean(cmd.Parameters["Result"].Value);
 
                     return QRes;
                 }
@@ -53,13 +53,13 @@ namespace CapaDatos
                     {
                         libros.Add(new Libro()
                         {
-                            IdLote = Convert.ToInt32(read["IdItem"]),
-                            IdProducto = Convert.ToInt32(read["IdProducto"]),
+                            IdLote = System.Convert.ToInt32(read["IdItem"]),
+                            IdProducto = System.Convert.ToInt32(read["IdProducto"]),
                             Name = read["Descripcion"].ToString(),
-                            Unidades = Convert.ToInt32(read["Unidades"]),
-                            Paquetes = Convert.ToInt32(read["Paquetes"]),
-                            UnidadPaquete = Convert.ToInt32(read["UnidadPaquete"]),
-                            PrecioPaquete = Convert.ToDouble(read["PrecioPaquete"]),
+                            Unidades = System.Convert.ToInt32(read["Unidades"]),
+                            Paquetes = System.Convert.ToInt32(read["Paquetes"]),
+                            UnidadPaquete = System.Convert.ToInt32(read["UnidadPaquete"]),
+                            PrecioPaquete = System.Convert.ToDouble(read["PrecioPaquete"]),
                             fechaRegistro = read["FechaRegistro"].ToString()
                         });
                     }
@@ -91,7 +91,7 @@ namespace CapaDatos
                     cConn.Open();
                     cmd.ExecuteNonQuery();
 
-                    QRes = Convert.ToBoolean(cmd.Parameters["Result"].Value);
+                    QRes = System.Convert.ToBoolean(cmd.Parameters["Result"].Value);
 
                     return QRes;
                 }

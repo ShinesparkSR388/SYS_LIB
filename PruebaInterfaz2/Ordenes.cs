@@ -70,7 +70,7 @@ namespace PruebaInterfaz2
             int i = 0;
             foreach (var product in prod)
             {
-                if (i == Convert.ToInt32(cb_Productos.SelectedIndex.ToString()))
+                if (i == System.Convert.ToInt32(cb_Productos.SelectedIndex.ToString()))
                 {
                     //asignacion de campos
                     txt_IdProduct.Text = product.Id.ToString();
@@ -78,7 +78,7 @@ namespace PruebaInterfaz2
                     txtNombre.Text = product.Descripcion.ToString();
                     try
                     {
-                        txtTotal.Text = (Convert.ToInt32(txtPaquetes.Text) * product.PrecioPaquete).ToString();
+                        txtTotal.Text = (System.Convert.ToInt32(txtPaquetes.Text) * product.PrecioPaquete).ToString();
                     }
                     catch (Exception)
                     {
@@ -94,8 +94,8 @@ namespace PruebaInterfaz2
 
                     try
                     {
-                        articulo_actual.Paquetes = Convert.ToInt32(txtPaquetes.Text);
-                        articulo_actual.Total = Convert.ToInt32(txtPaquetes.Text) * product.PrecioPaquete;
+                        articulo_actual.Paquetes = System.Convert.ToInt32(txtPaquetes.Text);
+                        articulo_actual.Total = System.Convert.ToInt32(txtPaquetes.Text) * product.PrecioPaquete;
                         btnAgregar.Enabled = true;
                     }
                     catch (Exception)
@@ -128,9 +128,9 @@ namespace PruebaInterfaz2
             
             try
             {
-                txtTotal.Text = (Convert.ToInt32(txtPaquetes.Text) * articulo_actual.PrecioPaquete).ToString();
-                articulo_actual.Paquetes = Convert.ToInt32(txtPaquetes.Text);
-                articulo_actual.Total = Convert.ToInt32(txtPaquetes.Text) * articulo_actual.PrecioPaquete;
+                    txtTotal.Text = (System.Convert.ToInt32(txtPaquetes.Text) * articulo_actual.PrecioPaquete).ToString();
+                    articulo_actual.Paquetes = System.Convert.ToInt32(txtPaquetes.Text);
+                    articulo_actual.Total = System.Convert.ToInt32(txtPaquetes.Text) * articulo_actual.PrecioPaquete;
                 btnAgregar.Enabled = true;
             }
             catch (Exception)

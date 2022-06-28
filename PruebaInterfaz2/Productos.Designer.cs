@@ -327,6 +327,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_Id.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.txt_Id.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_Id.Enabled = false;
             this.txt_Id.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txt_Id.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.txt_Id.Location = new System.Drawing.Point(18, 99);

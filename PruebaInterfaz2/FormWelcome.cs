@@ -53,4 +53,9 @@ public partial class FormWelcome : Form
         int[] rgb = {new Random().Next(0, 255), new Random().Next(0, 255), new Random().Next(0, 255)};
         lblUsuario.ForeColor = Color.FromArgb(rgb[0], rgb[1], rgb[2]);
     }
+
+    private void circularProgressBar1_Click(object sender, EventArgs e)
+    {
+
+    }
 }

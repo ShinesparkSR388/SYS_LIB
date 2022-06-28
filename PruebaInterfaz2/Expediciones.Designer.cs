@@ -28,9 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Expediciones));
             this.panelContenedor = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblError1 = new System.Windows.Forms.Label();
+            this.lblError2 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnGuardar = new FontAwesome.Sharp.IconButton();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -50,12 +54,16 @@
             this.btnGrabar = new FontAwesome.Sharp.IconButton();
             this.btnQuitar = new FontAwesome.Sharp.IconButton();
             this.DT_Ventas = new System.Windows.Forms.DataGridView();
+            this.error1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.error2 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panelContenedor.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DT_Productos)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DT_Ventas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.error1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.error2)).BeginInit();
             this.SuspendLayout();
             // 
             // panelContenedor
@@ -85,6 +93,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.lblError1);
+            this.panel1.Controls.Add(this.lblError2);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.btnGuardar);
             this.panel1.Controls.Add(this.panel5);
@@ -104,6 +114,23 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1096, 294);
             this.panel1.TabIndex = 0;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // lblError1
+            // 
+            this.lblError1.AutoSize = true;
+            this.lblError1.Location = new System.Drawing.Point(1027, 163);
+            this.lblError1.Name = "lblError1";
+            this.lblError1.Size = new System.Drawing.Size(0, 20);
+            this.lblError1.TabIndex = 74;
+            // 
+            // lblError2
+            // 
+            this.lblError2.AutoSize = true;
+            this.lblError2.Location = new System.Drawing.Point(1027, 212);
+            this.lblError2.Name = "lblError2";
+            this.lblError2.Size = new System.Drawing.Size(0, 20);
+            this.lblError2.TabIndex = 74;
             // 
             // label2
             // 
@@ -382,6 +409,16 @@
             this.DT_Ventas.TabIndex = 10;
             this.DT_Ventas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DT_Ventas_CellClick);
             // 
+            // error1
+            // 
+            this.error1.ContainerControl = this;
+            this.error1.Icon = ((System.Drawing.Icon)(resources.GetObject("error1.Icon")));
+            // 
+            // error2
+            // 
+            this.error2.ContainerControl = this;
+            this.error2.Icon = ((System.Drawing.Icon)(resources.GetObject("error2.Icon")));
+            // 
             // Expediciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -398,6 +435,8 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DT_Ventas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.error1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.error2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -426,5 +465,9 @@
         private FontAwesome.Sharp.IconButton btnQuitar;
         private Label label2;
         private Label label1;
+        private Label lblError1;
+        private Label lblError2;
+        private ErrorProvider error1;
+        private ErrorProvider error2;
     }
 }

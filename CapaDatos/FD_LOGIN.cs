@@ -20,7 +20,7 @@ namespace CapaDatos
 
                     cConn.Open();
                     cmd.ExecuteNonQuery();
-                    bool QRes = Convert.ToBoolean(cmd.Parameters["Resultado"].Value);
+                    bool QRes = System.Convert.ToBoolean(cmd.Parameters["Resultado"].Value);
                     return QRes;
                 }
                 catch (Exception ex)
