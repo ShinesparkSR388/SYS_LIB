@@ -1,20 +1,164 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using CapaDatos;
+using CapaModelo;
 
 namespace PruebaInterfaz2
 {
     public partial class Expediciones : Form
     {
+        Libro Libro_actual = new Libro();
+        Venta venta = new Venta();
+        List<Libro> libros = new List<Libro>();
+        List<Libro> nuevo_stock = new List<Libro>();
+        List<Venta> ventas = new List<Venta>();
         public Expediciones()
         {
             InitializeComponent();
+            libros = FD_Stock.obtenerLibros();
+            MostrarDatos();
+        }
+        private void MostrarDatos()
+        {
+
+            DT_Productos.Rows.Clear();
+            DT_Productos.Columns.Clear();
+            DT_Productos.DataSource = null;
+            if (libros == null) { return; }
+            int t = 0;
+
+            DT_Productos.Columns.Add("Id", "Id");
+            DT_Productos.Columns.Add("Nombre", "Nombre");
+            DT_Productos.Columns.Add("Unidades", "Unidades");
+            DT_Productos.Columns.Add("Cajas", "Cajas");
+            DT_Productos.Columns.Add("U/C", "U/C");
+            DT_Productos.Columns.Add("Precio/C", "Precio/C");
+
+            foreach (var item in libros)
+            {
+                string[] val = { item.IdProducto.ToString(), item.Name.ToString(), item.Unidades.ToString(), item.Paquetes.ToString(), item.UnidadPaquete.ToString(), item.PrecioPaquete.ToString() };
+                bool l = false;
+                foreach (var valor in nuevo_stock)
+                {
+                    if (valor.IdProducto == item.IdProducto) { l = true; }
+                }
+                if (l == false)
+                {
+                    DT_Productos.Rows.Add(val);
+                }
+            }
+        }
+        private void MostrarDatos_Venta(List<Venta> data)
+        {
+            if (data == null) { return; }
+            DT_Ventas.Rows.Clear();
+            DT_Ventas.Columns.Clear();
+            DT_Ventas.DataSource = null;
+
+            DT_Ventas.Columns.Add("Id", "Id");
+            DT_Ventas.Columns.Add("Nombre", "Nombre");
+            DT_Ventas.Columns.Add("Unidades", "Unidades");
+            DT_Ventas.Columns.Add("Cajas", "Cajas");
+            DT_Ventas.Columns.Add("Precio Total", "Precio Total");
+
+            foreach (var item in data)
+            {
+                string[] val = { item.IdProducto.ToString(), item.Name.ToString(), item.Unidades.ToString(), item.Paquetes.ToString(), item.PrecioTotal.ToString() };
+                DT_Ventas.Rows.Add(val);
+            }
+        }
+        private void Validar_Calculos(bool val)
+        {
+            try
+            {
+                int i = Libro_actual.Paquetes - Convert.ToInt32(txtPaquetes.Text);
+                if (i < 0)
+                {
+                    return;
+                }
+                venta.Paquetes = Convert.ToInt32(txtPaquetes.Text);
+                if (Convert.ToInt32(txtUnidades.Text) > Libro_actual.UnidadPaquete)
+                {
+                    return;
+                }
+                i = Libro_actual.Unidades - Convert.ToInt32(txtUnidades.Text);
+                if (i < 0)
+                {
+                    if (Libro_actual.Paquetes == venta.Paquetes)
+                    {
+                        return;
+                    }
+
+                }
+                venta.Unidades = Convert.ToInt32(txtUnidades.Text);
+                venta.PrecioTotal = (venta.Paquetes * Libro_actual.PrecioPaquete) + (venta.Unidades * (Libro_actual.PrecioPaquete / Libro_actual.UnidadPaquete));
+                txtTotal.Text = venta.PrecioTotal.ToString();
+                btnGuardar.Enabled = true;
+                if (val == true)
+                {
+                    Libro_actual.Paquetes = Libro_actual.Paquetes - venta.Paquetes;
+                    if (i < 0)
+                    {
+                        Libro_actual.Paquetes--;
+                        Libro_actual.Unidades = Libro_actual.Unidades + Libro_actual.UnidadPaquete;
+                    }
+                    Libro_actual.Unidades = Libro_actual.Unidades - venta.Unidades;
+                    nuevo_stock.Add(Libro_actual);
+                    ventas.Add(venta);
+                    btnGuardar.Enabled = false;
+                    Libro_actual = null;
+                    Libro_actual = new Libro();
+                    venta = null;
+                    venta = new Venta();
+                    MessageBox.Show("Venta agregada");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                txtTotal.Text = "0";
+                btnGuardar.Enabled = false;
+
+            }
+
+        }
+
+        private void DT_Productos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Libro_actual = null;
+            Libro_actual = new Libro();
+            venta = null;
+            venta = new Venta();
+            if (e.RowIndex == -1) { return; }
+            Libro_actual.IdProducto = Convert.ToInt32(DT_Productos.Rows[e.RowIndex].Cells["Id"].Value);
+            libros = FD_Stock.obtenerLibros();
+            foreach (var item in libros)
+            {
+                if (item.IdProducto == Libro_actual.IdProducto)
+                {
+                    Libro_actual = item;
+                    venta.IdProducto = Libro_actual.IdProducto;
+                    venta.Name = Libro_actual.Name;
+                }
+            }
+            txtLibro.Text = Libro_actual.Name;
+            Validar_Calculos(false);
+        }
+
+        private void txtUnidades_TextChanged(object sender, EventArgs e)
+        {
+            Validar_Calculos(false);
+        }
+
+        private void txtPaquetes_TextChanged(object sender, EventArgs e)
+        {
+            Validar_Calculos(false);
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            Validar_Calculos(true);
+            libros = FD_Stock.obtenerLibros();
+            MostrarDatos();
+            MostrarDatos_Venta(ventas);
         }
     }
 }

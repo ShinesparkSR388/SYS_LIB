@@ -123,8 +123,8 @@ CREATE TABLE [dbo].[OUTPUTS] (
   [IdVenta] int primary key IDENTITY(1,1) NOT NULL,
   [IdProducto] int foreign key references PRODUCTS(IdProducto),
   [Descripcion] varchar(100) COLLATE Modern_Spanish_CI_AS NULL,
-  [Unidades] int NOT NULL,
-  [PrecioUnitario] float (30) default(0),
+  [Unidades] int NOT NULL default(0),
+  [Cajas] int NOT NULL default(0),
   [PrecioTotal] float (30) default(0),
   [FechaRegistro] varchar(100) DEFAULT getdate() NULL
 )

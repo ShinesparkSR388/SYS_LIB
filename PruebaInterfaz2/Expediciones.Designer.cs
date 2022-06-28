@@ -31,29 +31,31 @@
             this.panelContenedor = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.btnGuardar = new FontAwesome.Sharp.IconButton();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.txt_Id = new System.Windows.Forms.TextBox();
+            this.txtTotal = new System.Windows.Forms.TextBox();
+            this.txtUnidades = new System.Windows.Forms.TextBox();
+            this.txtPaquetes = new System.Windows.Forms.TextBox();
+            this.txtLibro = new System.Windows.Forms.TextBox();
             this.icBuscar = new FontAwesome.Sharp.IconButton();
             this.panel7 = new System.Windows.Forms.Panel();
             this.txtBuscar = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.DT_Productos = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnEliminar = new FontAwesome.Sharp.IconButton();
-            this.btnModificar = new FontAwesome.Sharp.IconButton();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnGrabar = new FontAwesome.Sharp.IconButton();
+            this.btnQuitar = new FontAwesome.Sharp.IconButton();
+            this.DT_Ventas = new System.Windows.Forms.DataGridView();
             this.panelContenedor.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DT_Productos)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DT_Ventas)).BeginInit();
             this.SuspendLayout();
             // 
             // panelContenedor
@@ -62,7 +64,7 @@
             this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContenedor.Location = new System.Drawing.Point(0, 0);
             this.panelContenedor.Name = "panelContenedor";
-            this.panelContenedor.Size = new System.Drawing.Size(1102, 603);
+            this.panelContenedor.Size = new System.Drawing.Size(1102, 600);
             this.panelContenedor.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -78,29 +80,43 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1102, 603);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1102, 600);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.btnGuardar);
             this.panel1.Controls.Add(this.panel5);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.panel6);
-            this.panel1.Controls.Add(this.textBox7);
-            this.panel1.Controls.Add(this.textBox2);
-            this.panel1.Controls.Add(this.textBox6);
-            this.panel1.Controls.Add(this.txt_Id);
+            this.panel1.Controls.Add(this.txtTotal);
+            this.panel1.Controls.Add(this.txtUnidades);
+            this.panel1.Controls.Add(this.txtPaquetes);
+            this.panel1.Controls.Add(this.txtLibro);
             this.panel1.Controls.Add(this.icBuscar);
             this.panel1.Controls.Add(this.panel7);
             this.panel1.Controls.Add(this.txtBuscar);
-            this.panel1.Controls.Add(this.dataGridView1);
+            this.panel1.Controls.Add(this.DT_Productos);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1096, 295);
+            this.panel1.Size = new System.Drawing.Size(1096, 294);
             this.panel1.TabIndex = 0;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.ForeColor = System.Drawing.Color.LightGray;
+            this.label2.Location = new System.Drawing.Point(100, 35);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(198, 23);
+            this.label2.TabIndex = 73;
+            this.label2.Text = "Productos en Stock";
             // 
             // btnGuardar
             // 
@@ -123,6 +139,7 @@
             this.btnGuardar.TabIndex = 61;
             this.btnGuardar.Text = "Selección";
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // panel5
             // 
@@ -160,57 +177,61 @@
             this.panel6.Size = new System.Drawing.Size(311, 2);
             this.panel6.TabIndex = 56;
             // 
-            // textBox7
+            // txtTotal
             // 
-            this.textBox7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.textBox7.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox7.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.textBox7.Location = new System.Drawing.Point(710, 257);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.PlaceholderText = "Total";
-            this.textBox7.Size = new System.Drawing.Size(311, 25);
-            this.textBox7.TabIndex = 55;
+            this.txtTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtTotal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.txtTotal.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtTotal.Enabled = false;
+            this.txtTotal.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtTotal.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.txtTotal.Location = new System.Drawing.Point(710, 257);
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.PlaceholderText = "Total";
+            this.txtTotal.Size = new System.Drawing.Size(311, 25);
+            this.txtTotal.TabIndex = 55;
             // 
-            // textBox2
+            // txtUnidades
             // 
-            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox2.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.textBox2.Location = new System.Drawing.Point(710, 160);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.PlaceholderText = "Libro";
-            this.textBox2.Size = new System.Drawing.Size(311, 25);
-            this.textBox2.TabIndex = 55;
+            this.txtUnidades.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtUnidades.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.txtUnidades.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtUnidades.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtUnidades.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.txtUnidades.Location = new System.Drawing.Point(710, 160);
+            this.txtUnidades.Name = "txtUnidades";
+            this.txtUnidades.PlaceholderText = "Unidades";
+            this.txtUnidades.Size = new System.Drawing.Size(311, 25);
+            this.txtUnidades.TabIndex = 55;
+            this.txtUnidades.TextChanged += new System.EventHandler(this.txtUnidades_TextChanged);
             // 
-            // textBox6
+            // txtPaquetes
             // 
-            this.textBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox6.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.textBox6.Location = new System.Drawing.Point(710, 209);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.PlaceholderText = "Unidades";
-            this.textBox6.Size = new System.Drawing.Size(311, 25);
-            this.textBox6.TabIndex = 55;
+            this.txtPaquetes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPaquetes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.txtPaquetes.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPaquetes.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtPaquetes.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.txtPaquetes.Location = new System.Drawing.Point(710, 209);
+            this.txtPaquetes.Name = "txtPaquetes";
+            this.txtPaquetes.PlaceholderText = "Paquetes";
+            this.txtPaquetes.Size = new System.Drawing.Size(311, 25);
+            this.txtPaquetes.TabIndex = 55;
+            this.txtPaquetes.TextChanged += new System.EventHandler(this.txtPaquetes_TextChanged);
             // 
-            // txt_Id
+            // txtLibro
             // 
-            this.txt_Id.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_Id.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.txt_Id.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_Id.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_Id.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.txt_Id.Location = new System.Drawing.Point(710, 112);
-            this.txt_Id.Name = "txt_Id";
-            this.txt_Id.PlaceholderText = "ID de expedición";
-            this.txt_Id.Size = new System.Drawing.Size(311, 25);
-            this.txt_Id.TabIndex = 55;
+            this.txtLibro.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtLibro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.txtLibro.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtLibro.Enabled = false;
+            this.txtLibro.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtLibro.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.txtLibro.Location = new System.Drawing.Point(710, 112);
+            this.txtLibro.Name = "txtLibro";
+            this.txtLibro.PlaceholderText = "Libro";
+            this.txtLibro.Size = new System.Drawing.Size(311, 25);
+            this.txtLibro.TabIndex = 55;
             // 
             // icBuscar
             // 
@@ -224,9 +245,9 @@
             this.icBuscar.IconColor = System.Drawing.Color.White;
             this.icBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.icBuscar.IconSize = 30;
-            this.icBuscar.Location = new System.Drawing.Point(623, 0);
+            this.icBuscar.Location = new System.Drawing.Point(661, 27);
             this.icBuscar.Name = "icBuscar";
-            this.icBuscar.Size = new System.Drawing.Size(82, 52);
+            this.icBuscar.Size = new System.Drawing.Size(30, 28);
             this.icBuscar.TabIndex = 53;
             this.icBuscar.UseVisualStyleBackColor = true;
             // 
@@ -234,7 +255,7 @@
             // 
             this.panel7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panel7.BackColor = System.Drawing.Color.DimGray;
-            this.panel7.Location = new System.Drawing.Point(306, 45);
+            this.panel7.Location = new System.Drawing.Point(344, 53);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(311, 2);
             this.panel7.TabIndex = 52;
@@ -246,98 +267,123 @@
             this.txtBuscar.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtBuscar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtBuscar.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.txtBuscar.Location = new System.Drawing.Point(306, 19);
+            this.txtBuscar.Location = new System.Drawing.Point(344, 27);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.PlaceholderText = "Buscar por Nombre";
             this.txtBuscar.Size = new System.Drawing.Size(311, 25);
             this.txtBuscar.TabIndex = 51;
             // 
-            // dataGridView1
+            // DT_Productos
             // 
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.DT_Productos.AllowUserToAddRows = false;
+            this.DT_Productos.AllowUserToDeleteRows = false;
+            this.DT_Productos.AllowUserToResizeColumns = false;
+            this.DT_Productos.AllowUserToResizeRows = false;
+            this.DT_Productos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(100, 61);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(591, 221);
-            this.dataGridView1.TabIndex = 8;
+            this.DT_Productos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DT_Productos.Location = new System.Drawing.Point(100, 61);
+            this.DT_Productos.Name = "DT_Productos";
+            this.DT_Productos.RowHeadersWidth = 65;
+            this.DT_Productos.RowTemplate.Height = 29;
+            this.DT_Productos.Size = new System.Drawing.Size(591, 220);
+            this.DT_Productos.TabIndex = 8;
+            this.DT_Productos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DT_Productos_CellClick);
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.btnEliminar);
-            this.panel2.Controls.Add(this.btnModificar);
-            this.panel2.Controls.Add(this.dataGridView2);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.btnGrabar);
+            this.panel2.Controls.Add(this.btnQuitar);
+            this.panel2.Controls.Add(this.DT_Ventas);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(3, 304);
+            this.panel2.Location = new System.Drawing.Point(3, 303);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1096, 296);
+            this.panel2.Size = new System.Drawing.Size(1096, 294);
             this.panel2.TabIndex = 1;
             // 
-            // btnEliminar
+            // label1
             // 
-            this.btnEliminar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEliminar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.btnEliminar.FlatAppearance.BorderSize = 2;
-            this.btnEliminar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnEliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnEliminar.ForeColor = System.Drawing.Color.White;
-            this.btnEliminar.IconChar = FontAwesome.Sharp.IconChar.Eraser;
-            this.btnEliminar.IconColor = System.Drawing.Color.White;
-            this.btnEliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnEliminar.IconSize = 30;
-            this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnEliminar.Location = new System.Drawing.Point(710, 94);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(311, 43);
-            this.btnEliminar.TabIndex = 64;
-            this.btnEliminar.Text = "Finalizar";
-            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.LightGray;
+            this.label1.Location = new System.Drawing.Point(100, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(207, 23);
+            this.label1.TabIndex = 73;
+            this.label1.Text = "Productos Añadidos";
             // 
-            // btnModificar
+            // btnGrabar
             // 
-            this.btnModificar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnModificar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.btnModificar.FlatAppearance.BorderSize = 2;
-            this.btnModificar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnModificar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnModificar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnModificar.ForeColor = System.Drawing.Color.White;
-            this.btnModificar.IconChar = FontAwesome.Sharp.IconChar.Edit;
-            this.btnModificar.IconColor = System.Drawing.Color.White;
-            this.btnModificar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnModificar.IconSize = 30;
-            this.btnModificar.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnModificar.Location = new System.Drawing.Point(710, 38);
-            this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(311, 43);
-            this.btnModificar.TabIndex = 63;
-            this.btnModificar.Text = "Quitar";
-            this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnGrabar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnGrabar.Enabled = false;
+            this.btnGrabar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnGrabar.FlatAppearance.BorderSize = 2;
+            this.btnGrabar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnGrabar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnGrabar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGrabar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnGrabar.ForeColor = System.Drawing.Color.White;
+            this.btnGrabar.IconChar = FontAwesome.Sharp.IconChar.Eraser;
+            this.btnGrabar.IconColor = System.Drawing.Color.White;
+            this.btnGrabar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnGrabar.IconSize = 30;
+            this.btnGrabar.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnGrabar.Location = new System.Drawing.Point(710, 94);
+            this.btnGrabar.Name = "btnGrabar";
+            this.btnGrabar.Size = new System.Drawing.Size(311, 43);
+            this.btnGrabar.TabIndex = 64;
+            this.btnGrabar.Text = "Finalizar";
+            this.btnGrabar.UseVisualStyleBackColor = true;
             // 
-            // dataGridView2
+            // btnQuitar
             // 
-            this.dataGridView2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.btnQuitar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnQuitar.Enabled = false;
+            this.btnQuitar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnQuitar.FlatAppearance.BorderSize = 2;
+            this.btnQuitar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnQuitar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnQuitar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnQuitar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnQuitar.ForeColor = System.Drawing.Color.White;
+            this.btnQuitar.IconChar = FontAwesome.Sharp.IconChar.Edit;
+            this.btnQuitar.IconColor = System.Drawing.Color.White;
+            this.btnQuitar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnQuitar.IconSize = 30;
+            this.btnQuitar.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnQuitar.Location = new System.Drawing.Point(710, 38);
+            this.btnQuitar.Name = "btnQuitar";
+            this.btnQuitar.Size = new System.Drawing.Size(311, 43);
+            this.btnQuitar.TabIndex = 63;
+            this.btnQuitar.Text = "Quitar";
+            this.btnQuitar.UseVisualStyleBackColor = true;
+            // 
+            // DT_Ventas
+            // 
+            this.DT_Ventas.AllowUserToAddRows = false;
+            this.DT_Ventas.AllowUserToDeleteRows = false;
+            this.DT_Ventas.AllowUserToResizeColumns = false;
+            this.DT_Ventas.AllowUserToResizeRows = false;
+            this.DT_Ventas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(100, 38);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersWidth = 51;
-            this.dataGridView2.RowTemplate.Height = 29;
-            this.dataGridView2.Size = new System.Drawing.Size(591, 237);
-            this.dataGridView2.TabIndex = 10;
+            this.DT_Ventas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DT_Ventas.Location = new System.Drawing.Point(100, 38);
+            this.DT_Ventas.Name = "DT_Ventas";
+            this.DT_Ventas.RowHeadersWidth = 51;
+            this.DT_Ventas.RowTemplate.Height = 29;
+            this.DT_Ventas.Size = new System.Drawing.Size(591, 235);
+            this.DT_Ventas.TabIndex = 10;
             // 
             // Expediciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1102, 603);
+            this.ClientSize = new System.Drawing.Size(1102, 600);
             this.Controls.Add(this.panelContenedor);
             this.Name = "Expediciones";
             this.Text = "Expediciones";
@@ -345,9 +391,10 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DT_Productos)).EndInit();
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DT_Ventas)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -358,8 +405,8 @@
         private TableLayoutPanel tableLayoutPanel1;
         private Panel panel1;
         private Panel panel2;
-        private DataGridView dataGridView1;
-        private DataGridView dataGridView2;
+        private DataGridView DT_Productos;
+        private DataGridView DT_Ventas;
         private FontAwesome.Sharp.IconButton icBuscar;
         private Panel panel7;
         private TextBox txtBuscar;
@@ -367,12 +414,14 @@
         private Panel panel3;
         private Panel panel4;
         private Panel panel6;
-        private TextBox textBox7;
-        private TextBox textBox2;
-        private TextBox textBox6;
-        private TextBox txt_Id;
+        private TextBox txtTotal;
+        private TextBox txtUnidades;
+        private TextBox txtPaquetes;
+        private TextBox txtLibro;
         private FontAwesome.Sharp.IconButton btnGuardar;
-        private FontAwesome.Sharp.IconButton btnEliminar;
-        private FontAwesome.Sharp.IconButton btnModificar;
+        private FontAwesome.Sharp.IconButton btnGrabar;
+        private FontAwesome.Sharp.IconButton btnQuitar;
+        private Label label2;
+        private Label label1;
     }
 }
