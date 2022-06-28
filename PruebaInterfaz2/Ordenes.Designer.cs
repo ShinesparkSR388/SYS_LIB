@@ -36,7 +36,6 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.btnAgregar = new FontAwesome.Sharp.IconButton();
             this.txt_IdProduct = new System.Windows.Forms.TextBox();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -78,7 +77,6 @@
             this.panel2.Controls.Add(this.panel7);
             this.panel2.Controls.Add(this.btnAgregar);
             this.panel2.Controls.Add(this.txt_IdProduct);
-            this.panel2.Controls.Add(this.iconButton1);
             this.panel2.Controls.Add(this.panel1);
             this.panel2.Controls.Add(this.panel5);
             this.panel2.Controls.Add(this.panel4);
@@ -196,23 +194,6 @@
             this.txt_IdProduct.PlaceholderText = "Id Producto";
             this.txt_IdProduct.Size = new System.Drawing.Size(198, 25);
             this.txt_IdProduct.TabIndex = 70;
-            // 
-            // iconButton1
-            // 
-            this.iconButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.iconButton1.FlatAppearance.BorderSize = 0;
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Sourcetree;
-            this.iconButton1.IconColor = System.Drawing.Color.White;
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.IconSize = 30;
-            this.iconButton1.Location = new System.Drawing.Point(372, 147);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(43, 42);
-            this.iconButton1.TabIndex = 65;
-            this.iconButton1.Text = "...";
-            this.iconButton1.UseVisualStyleBackColor = true;
-            this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
             // 
             // panel1
             // 
@@ -388,6 +369,5 @@
         private Label label1;
         private Panel panel7;
         private TextBox txt_IdProduct;
-        private FontAwesome.Sharp.IconButton iconButton1;
     }
 }
