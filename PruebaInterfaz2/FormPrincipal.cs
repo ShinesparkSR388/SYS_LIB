@@ -5,14 +5,14 @@ namespace PruebaInterfaz2
     public partial class FormPrincipal : Form
     {
         //Fields
+        private Form formularioActivo;
         private int borderSize = 6;
         private Size _formSize; //Keep form size when it is minimized and restored.Since the form is resized because it takes into account the size of the title bar and borders.
 
         public FormPrincipal()
         {
             InitializeComponent();
-            CerrarPaneles();
-            AbrirFormulario<FormLogo>();
+            formularioActivo = null;
             Padding = new Padding(borderSize);
             BackColor = Color.FromArgb(46, 43, 20);
             timer1.Start();
@@ -174,26 +174,22 @@ namespace PruebaInterfaz2
             AjustarFormulario();
         }
 
-        private void CerrarPaneles()
+        private void AbrirForm(Form formularioHijo)
         {
-            panelSubMenu1.Visible = false;
-            panelSubMenu2.Visible = false;
-            panelSubMenu3.Visible = false;
-        }
-
-        private void AbrirSubMenu(Panel panelAbrir)
-        {
-            if (panelAbrir.Visible)
+            if (formularioActivo != null)
             {
-                panelAbrir.Visible = false;
+                formularioActivo.Close();
             }
-            else
-            {
-                CerrarPaneles();
-                panelAbrir.Visible = true;
-            }
-        }
 
+            formularioActivo = formularioHijo;
+            formularioHijo.TopLevel = false;
+            //formularioHijo.FormBorderStyle = FormBorderStyle.None;
+            //formularioHijo.Dock = DockStyle.Fill;
+            panelFormularios.Controls.Add(formularioHijo);
+            panelFormularios.Tag = formularioHijo;
+            formularioHijo.BringToFront();
+            formularioHijo.Show();
+        }
         private void AbrirFormulario<TMiForm>() where TMiForm : Form, new()
         {
             Form? formulario = panelFormularios.Controls.OfType<TMiForm>().FirstOrDefault();
@@ -215,29 +211,24 @@ namespace PruebaInterfaz2
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            AbrirSubMenu(panelSubMenu1);
-        }
-
         private void btnCompraLibros_Click(object sender, EventArgs e)
         {
-            AbrirFormulario<Expediciones>();
+            //AbrirFormulario<Expediciones>();
+            AbrirForm(new Expediciones());
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)
         {
-            AbrirFormulario<FormLogo>();
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            AbrirSubMenu(panelSubMenu2);
+            
+            if (formularioActivo != null)
+                formularioActivo.Close();
+            pictureBox5.BringToFront();
         }
 
         private void btnOrden_Click(object sender, EventArgs e)
         {
-            AbrirFormulario<Ordenes>();
+            //AbrirFormulario<Ordenes>();
+            AbrirForm(new Ordenes());
         }
 
         private void AjustarFormulario()
@@ -262,14 +253,10 @@ namespace PruebaInterfaz2
                 new Random().Next(0, 255));
         }
 
-        private void iconButton12_Click(object sender, EventArgs e)
-        {
-            AbrirSubMenu(panelSubMenu3);
-        }
-
         private void btnListaLibros_Click(object sender, EventArgs e)
         {
-            AbrirFormulario<LibrosActuales>();
+            //AbrirFormulario<LibrosActuales>();
+            AbrirForm(new LibrosActuales());
         }
 
         private void btnEstadisticaCompras_Click(object sender, EventArgs e)
@@ -279,12 +266,14 @@ namespace PruebaInterfaz2
 
         private void btnPostOrden_Click(object sender, EventArgs e)
         {
-            AbrirFormulario<PostOrden>();
+            //AbrirFormulario<PostOrden>();
+            AbrirForm(new PostOrden());
         }
 
         private void btnProveedores_Click(object sender, EventArgs e)
         {
-            AbrirFormulario<Proveedores>();
+            //AbrirFormulario<Proveedores>();
+            AbrirForm(new Proveedores());
         }
 
         private void btnEstadisticasRecepciones_Click(object sender, EventArgs e)
@@ -294,7 +283,8 @@ namespace PruebaInterfaz2
 
         private void iconButton3_Click(object sender, EventArgs e)
         {
-            AbrirFormulario<Productos>();
+            //AbrirFormulario<Productos>();
+            AbrirForm(new Productos());
         }
     }
 }
