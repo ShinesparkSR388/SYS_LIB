@@ -59,7 +59,7 @@ namespace PruebaInterfaz2
             DT_Ventas.Columns.Add("Unidades", "Unidades");
             DT_Ventas.Columns.Add("Cajas", "Cajas");
             DT_Ventas.Columns.Add("Precio Total", "Precio Total");
-
+            btnGrabar.Enabled = true;
             foreach (var item in data)
             {
                 string[] val = { item.IdProducto.ToString(), item.Name.ToString(), item.Unidades.ToString(), item.Paquetes.ToString(), item.PrecioTotal.ToString() };
@@ -103,6 +103,7 @@ namespace PruebaInterfaz2
                     }
                     Libro_actual.Unidades = Libro_actual.Unidades - venta.Unidades;
                     nuevo_stock.Add(Libro_actual);
+                    venta.fechaRegistro = DateTime.Now.ToString();
                     ventas.Add(venta);
                     btnGuardar.Enabled = false;
                     Libro_actual = null;
@@ -164,7 +165,7 @@ namespace PruebaInterfaz2
 
         private void btnQuitar_Click(object sender, EventArgs e)
         {
-            int i = 0,var = 0;
+            int i = 0, var = 0;
 
             foreach (var lib in nuevo_stock)
             {
@@ -176,7 +177,7 @@ namespace PruebaInterfaz2
                 {
                     i++;
                 }
-                
+
             }
             nuevo_stock.RemoveAt(var);
             i = var = 0;
@@ -210,6 +211,55 @@ namespace PruebaInterfaz2
                 btnQuitar.Enabled = false;
             }
 
+        }
+
+        private void btnGrabar_Click(object sender, EventArgs e)
+        {
+            bool ver1, ver2;
+
+            if ((MessageBox.Show("La operacion NO puede desacerse... ¿Desea Continuar?", "CONFIRMAR",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question,
+                MessageBoxDefaultButton.Button1) == System.Windows.Forms.DialogResult.Yes))
+            {
+                foreach (var item in ventas)
+                {
+                    ver1 = FD_Output.registrarVenta(item);
+
+                    if (ver1 == true)
+                    {
+                        MessageBox.Show("Error al guardar la venta ", item.Name.ToString());
+                    }
+                    else
+                    {
+                        foreach (var item2 in nuevo_stock)
+                        {
+                            if (item2.IdProducto.Equals(item.IdProducto))
+                            {
+                                ver2 = FD_Stock.actualizarStock(item2);
+                                if (ver2 == true)
+                                {
+                                    MessageBox.Show("Error al guardar la venta ", item.Name.ToString());
+                                    bool t = FD_Output.EliminarVenta(item);
+                                    if(t == true)
+                                    {
+                                        MessageBox.Show("Fatal Error");
+                                    }
+                                }
+                                else { 
+                                    
+                                }
+                            }
+
+                        }
+                    }
+                }
+                ventas.Clear();
+                nuevo_stock.Clear();
+                libros.Clear();
+                libros = FD_Stock.obtenerLibros();
+                MostrarDatos();
+                MostrarDatos_Venta(ventas);
+            }
         }
     }
 }

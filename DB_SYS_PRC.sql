@@ -377,16 +377,93 @@ IF EXISTS (SELECT * FROM [dbo].[STOCK] WHERE IdProducto = @IdProducto)
 			update [dbo].[STOCK] SET
 			Paquetes = Paquetes + @Paquetes
 			WHERE IdProducto = @IdProducto
-			PRINT 5
 	END TRY
 	BEGIN CATCH
 		SET @Result = 1
 		PRINT @Result
 	END CATCH
 GO
+-- ----------------------------
+-- procedure structure for upd_new_Stock
+-- ----------------------------
+IF EXISTS (SELECT * FROM sys.all_objects WHERE object_id = OBJECT_ID(N'[dbo].[upd_new_Stock]') AND type IN ('P', 'PC', 'RF', 'X'))
+	DROP PROCEDURE[dbo].[upd_new_Stock]
+GO
 
+CREATE PROCEDURE [dbo].[upd_new_Stock]
+(
+@IdProducto int ,
+@Paquetes int ,
+@Unidades int,
+@Result bit output
+)
+AS
+SET @Result = 0
+IF EXISTS (SELECT * FROM [dbo].[STOCK] WHERE IdProducto = @IdProducto)
+	BEGIN TRY
+			update [dbo].[STOCK] SET
+			Paquetes = @Paquetes,
+			Unidades = @Unidades
+			WHERE IdProducto = @IdProducto
+	END TRY
+	BEGIN CATCH
+		SET @Result = 1
+		PRINT @Result
+	END CATCH
+GO
+--********************* --------------------- *********************
+--********************* procedure structures for OUTPUTS**********
+--********************* --------------------- *********************
+-- ----------------------------
+-- procedure structure for reg_Output
+-- ----------------------------
+IF EXISTS (SELECT * FROM sys.all_objects WHERE object_id = OBJECT_ID(N'[dbo].[reg_Output]') AND type IN ('P', 'PC', 'RF', 'X'))
+	DROP PROCEDURE[dbo].[reg_Output]
+GO
+
+CREATE PROCEDURE [dbo].[reg_Output]
+(
+@IdProducto int ,
+@Descripcion varchar(100),
+@Unidades int ,
+@Paquetes int ,
+@PrecioTotal float (30),
+@FechaRegistro varchar(100),
+@Result bit output
+)
+AS
+SET @Result = 0
+BEGIN TRY
+
+	INSERT INTO [dbo].[OUTPUTS] ([IdProducto],[Descripcion],[Unidades],[Cajas],[PrecioTotal],[FechaRegistro]) VALUES (@IdProducto,@Descripcion,@Unidades,@Paquetes,@PrecioTotal,@FechaRegistro)
+END TRY
+BEGIN CATCH
+	SET @Result = 1
+END CATCH
+GO
+-- ----------------------------
+-- procedure structure for del_Output
+-- ----------------------------
+IF EXISTS (SELECT * FROM sys.all_objects WHERE object_id = OBJECT_ID(N'[dbo].[del_Output]') AND type IN ('P', 'PC', 'RF', 'X'))
+	DROP PROCEDURE[dbo].[del_Output]
+GO
+
+CREATE PROCEDURE [dbo].[del_Output]
+(
+@IdProducto int ,
+@Result bit output
+)
+AS
+SET @Result = 0
+BEGIN TRY
+	DELETE FROM [dbo].[OUTPUTS] WHERE IdProducto = @IdProducto
+END TRY
+BEGIN CATCH
+	SET @Result = 1
+END CATCH
+GO
 SELECT * FROM INPUTS
 SELECT * FROM PRODUCTS
 
-EXEC reg_Stock 1,'11',1,1,11,'111',1
-EXEC get_Stock
+SELECT * FROM OUTPUTS
+SELECT * FROM STOCK

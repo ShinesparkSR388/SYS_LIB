@@ -73,7 +73,7 @@ namespace CapaDatos
             }
 
         }
-        public static bool actualizarStock(Orden Orden_)
+        public static bool actualizarStock(Libro nuevo_)
         {
             bool QRes = false;
             using (SqlConnection cConn = new SqlConnection(Conexion.cn))
@@ -81,13 +81,10 @@ namespace CapaDatos
 
                 try
                 {
-                    SqlCommand cmd = new SqlCommand("reg_Stock", cConn);
-                    cmd.Parameters.AddWithValue("IdProducto", Orden_.IdProducto);
-                    cmd.Parameters.AddWithValue("Descripcion", Orden_.Name);
-                    cmd.Parameters.AddWithValue("Paquetes", Orden_.Paquetes);
-                    cmd.Parameters.AddWithValue("UnidadPaquete", Orden_.UnidadPaquete);
-                    cmd.Parameters.AddWithValue("PrecioPaquete", Orden_.PrecioPaquete);
-                    cmd.Parameters.AddWithValue("FechaRegistro", Orden_.FechaRegistro);
+                    SqlCommand cmd = new SqlCommand("upd_new_Stock", cConn);
+                    cmd.Parameters.AddWithValue("IdProducto", nuevo_.IdProducto);
+                    cmd.Parameters.AddWithValue("Paquetes", nuevo_.Paquetes);
+                    cmd.Parameters.AddWithValue("Unidades", nuevo_.Unidades);
                     cmd.Parameters.Add("Result", SqlDbType.Bit).Direction = ParameterDirection.Output;
                     cmd.CommandType = CommandType.StoredProcedure;
 

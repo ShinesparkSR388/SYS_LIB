@@ -338,6 +338,7 @@
             this.btnGrabar.TabIndex = 64;
             this.btnGrabar.Text = "Finalizar";
             this.btnGrabar.UseVisualStyleBackColor = true;
+            this.btnGrabar.Click += new System.EventHandler(this.btnGrabar_Click);
             // 
             // btnQuitar
             // 

@@ -172,12 +172,13 @@ namespace PruebaInterfaz2
                     }
 
                 }
-            }
-            else { return; }
             ordenes.Clear();
             btnAgregar.Enabled=false;
             mostrarDatos();
             Limpiar();
+            }
+            else { return; }
+            
 
         }
     }
