@@ -37,21 +37,15 @@
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.iconButton3 = new FontAwesome.Sharp.IconButton();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.iconButton12 = new FontAwesome.Sharp.IconButton();
             this.panelSubMenu2 = new System.Windows.Forms.Panel();
             this.btnEstadisticasRecepciones = new FontAwesome.Sharp.IconButton();
             this.btnProveedores = new FontAwesome.Sharp.IconButton();
             this.btnPostOrden = new FontAwesome.Sharp.IconButton();
             this.btnOrden = new FontAwesome.Sharp.IconButton();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.btnRecepciones = new FontAwesome.Sharp.IconButton();
             this.panelSubMenu1 = new System.Windows.Forms.Panel();
             this.btnEstadisticaCompras = new FontAwesome.Sharp.IconButton();
             this.btnListaLibros = new FontAwesome.Sharp.IconButton();
             this.btnCompraLibros = new FontAwesome.Sharp.IconButton();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.btnExpediciones = new FontAwesome.Sharp.IconButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.panelBarraTitulo = new System.Windows.Forms.Panel();
@@ -59,7 +53,9 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.panelContenedor.SuspendLayout();
+            this.panelFormularios.SuspendLayout();
             this.panelMenu.SuspendLayout();
             this.panelSubMenu3.SuspendLayout();
             this.panelSubMenu2.SuspendLayout();
@@ -70,6 +66,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
             // panelContenedor
@@ -86,6 +83,7 @@
             // panelFormularios
             // 
             this.panelFormularios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.panelFormularios.Controls.Add(this.pictureBox5);
             this.panelFormularios.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelFormularios.Location = new System.Drawing.Point(240, 42);
             this.panelFormularios.Name = "panelFormularios";
@@ -97,11 +95,8 @@
             this.panelMenu.AutoScroll = true;
             this.panelMenu.BackColor = System.Drawing.Color.Black;
             this.panelMenu.Controls.Add(this.panelSubMenu3);
-            this.panelMenu.Controls.Add(this.iconButton12);
             this.panelMenu.Controls.Add(this.panelSubMenu2);
-            this.panelMenu.Controls.Add(this.btnRecepciones);
             this.panelMenu.Controls.Add(this.panelSubMenu1);
-            this.panelMenu.Controls.Add(this.btnExpediciones);
             this.panelMenu.Controls.Add(this.panel1);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 42);
@@ -114,9 +109,8 @@
             this.panelSubMenu3.Controls.Add(this.iconButton1);
             this.panelSubMenu3.Controls.Add(this.iconButton2);
             this.panelSubMenu3.Controls.Add(this.iconButton3);
-            this.panelSubMenu3.Controls.Add(this.panel5);
             this.panelSubMenu3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelSubMenu3.Location = new System.Drawing.Point(0, 710);
+            this.panelSubMenu3.Location = new System.Drawing.Point(0, 560);
             this.panelSubMenu3.Name = "panelSubMenu3";
             this.panelSubMenu3.Size = new System.Drawing.Size(219, 161);
             this.panelSubMenu3.TabIndex = 13;
@@ -131,9 +125,9 @@
             this.iconButton1.IconColor = System.Drawing.Color.White;
             this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton1.Location = new System.Drawing.Point(31, 106);
+            this.iconButton1.Location = new System.Drawing.Point(0, 106);
             this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(188, 53);
+            this.iconButton1.Size = new System.Drawing.Size(219, 53);
             this.iconButton1.TabIndex = 7;
             this.iconButton1.Text = "iconButton1";
             this.iconButton1.UseVisualStyleBackColor = true;
@@ -148,9 +142,9 @@
             this.iconButton2.IconColor = System.Drawing.Color.White;
             this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton2.Location = new System.Drawing.Point(31, 53);
+            this.iconButton2.Location = new System.Drawing.Point(0, 53);
             this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Size = new System.Drawing.Size(188, 53);
+            this.iconButton2.Size = new System.Drawing.Size(219, 53);
             this.iconButton2.TabIndex = 6;
             this.iconButton2.Text = "Ventas";
             this.iconButton2.UseVisualStyleBackColor = true;
@@ -165,39 +159,13 @@
             this.iconButton3.IconColor = System.Drawing.Color.White;
             this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton3.Location = new System.Drawing.Point(31, 0);
+            this.iconButton3.Location = new System.Drawing.Point(0, 0);
             this.iconButton3.Name = "iconButton3";
-            this.iconButton3.Size = new System.Drawing.Size(188, 53);
+            this.iconButton3.Size = new System.Drawing.Size(219, 53);
             this.iconButton3.TabIndex = 5;
             this.iconButton3.Text = "Productos";
             this.iconButton3.UseVisualStyleBackColor = true;
             this.iconButton3.Click += new System.EventHandler(this.iconButton3_Click);
-            // 
-            // panel5
-            // 
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel5.Location = new System.Drawing.Point(0, 0);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(31, 161);
-            this.panel5.TabIndex = 4;
-            // 
-            // iconButton12
-            // 
-            this.iconButton12.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButton12.FlatAppearance.BorderSize = 0;
-            this.iconButton12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton12.ForeColor = System.Drawing.Color.Gainsboro;
-            this.iconButton12.IconChar = FontAwesome.Sharp.IconChar.BookOpen;
-            this.iconButton12.IconColor = System.Drawing.Color.White;
-            this.iconButton12.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton12.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton12.Location = new System.Drawing.Point(0, 660);
-            this.iconButton12.Name = "iconButton12";
-            this.iconButton12.Size = new System.Drawing.Size(219, 50);
-            this.iconButton12.TabIndex = 12;
-            this.iconButton12.Text = " Paquetes";
-            this.iconButton12.UseVisualStyleBackColor = true;
-            this.iconButton12.Click += new System.EventHandler(this.iconButton12_Click);
             // 
             // panelSubMenu2
             // 
@@ -205,9 +173,8 @@
             this.panelSubMenu2.Controls.Add(this.btnProveedores);
             this.panelSubMenu2.Controls.Add(this.btnPostOrden);
             this.panelSubMenu2.Controls.Add(this.btnOrden);
-            this.panelSubMenu2.Controls.Add(this.panel4);
             this.panelSubMenu2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelSubMenu2.Location = new System.Drawing.Point(0, 446);
+            this.panelSubMenu2.Location = new System.Drawing.Point(0, 346);
             this.panelSubMenu2.Name = "panelSubMenu2";
             this.panelSubMenu2.Size = new System.Drawing.Size(219, 214);
             this.panelSubMenu2.TabIndex = 11;
@@ -223,9 +190,9 @@
             this.btnEstadisticasRecepciones.IconColor = System.Drawing.Color.White;
             this.btnEstadisticasRecepciones.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnEstadisticasRecepciones.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEstadisticasRecepciones.Location = new System.Drawing.Point(31, 159);
+            this.btnEstadisticasRecepciones.Location = new System.Drawing.Point(0, 159);
             this.btnEstadisticasRecepciones.Name = "btnEstadisticasRecepciones";
-            this.btnEstadisticasRecepciones.Size = new System.Drawing.Size(188, 53);
+            this.btnEstadisticasRecepciones.Size = new System.Drawing.Size(219, 53);
             this.btnEstadisticasRecepciones.TabIndex = 8;
             this.btnEstadisticasRecepciones.Text = "Estadísticas";
             this.btnEstadisticasRecepciones.UseVisualStyleBackColor = false;
@@ -241,9 +208,9 @@
             this.btnProveedores.IconColor = System.Drawing.Color.White;
             this.btnProveedores.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnProveedores.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProveedores.Location = new System.Drawing.Point(31, 106);
+            this.btnProveedores.Location = new System.Drawing.Point(0, 106);
             this.btnProveedores.Name = "btnProveedores";
-            this.btnProveedores.Size = new System.Drawing.Size(188, 53);
+            this.btnProveedores.Size = new System.Drawing.Size(219, 53);
             this.btnProveedores.TabIndex = 7;
             this.btnProveedores.Text = "Proveedores";
             this.btnProveedores.UseVisualStyleBackColor = true;
@@ -259,9 +226,9 @@
             this.btnPostOrden.IconColor = System.Drawing.Color.White;
             this.btnPostOrden.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnPostOrden.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPostOrden.Location = new System.Drawing.Point(31, 53);
+            this.btnPostOrden.Location = new System.Drawing.Point(0, 53);
             this.btnPostOrden.Name = "btnPostOrden";
-            this.btnPostOrden.Size = new System.Drawing.Size(188, 53);
+            this.btnPostOrden.Size = new System.Drawing.Size(219, 53);
             this.btnPostOrden.TabIndex = 6;
             this.btnPostOrden.Text = "Post orden";
             this.btnPostOrden.UseVisualStyleBackColor = true;
@@ -277,48 +244,21 @@
             this.btnOrden.IconColor = System.Drawing.Color.White;
             this.btnOrden.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnOrden.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOrden.Location = new System.Drawing.Point(31, 0);
+            this.btnOrden.Location = new System.Drawing.Point(0, 0);
             this.btnOrden.Name = "btnOrden";
-            this.btnOrden.Size = new System.Drawing.Size(188, 53);
+            this.btnOrden.Size = new System.Drawing.Size(219, 53);
             this.btnOrden.TabIndex = 5;
             this.btnOrden.Text = "Orden";
             this.btnOrden.UseVisualStyleBackColor = true;
             this.btnOrden.Click += new System.EventHandler(this.btnOrden_Click);
-            // 
-            // panel4
-            // 
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel4.Location = new System.Drawing.Point(0, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(31, 214);
-            this.panel4.TabIndex = 4;
-            // 
-            // btnRecepciones
-            // 
-            this.btnRecepciones.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnRecepciones.FlatAppearance.BorderSize = 0;
-            this.btnRecepciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRecepciones.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnRecepciones.IconChar = FontAwesome.Sharp.IconChar.Handshake;
-            this.btnRecepciones.IconColor = System.Drawing.Color.White;
-            this.btnRecepciones.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnRecepciones.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRecepciones.Location = new System.Drawing.Point(0, 396);
-            this.btnRecepciones.Name = "btnRecepciones";
-            this.btnRecepciones.Size = new System.Drawing.Size(219, 50);
-            this.btnRecepciones.TabIndex = 10;
-            this.btnRecepciones.Text = "Recepciones";
-            this.btnRecepciones.UseVisualStyleBackColor = true;
-            this.btnRecepciones.Click += new System.EventHandler(this.button5_Click);
             // 
             // panelSubMenu1
             // 
             this.panelSubMenu1.Controls.Add(this.btnEstadisticaCompras);
             this.panelSubMenu1.Controls.Add(this.btnListaLibros);
             this.panelSubMenu1.Controls.Add(this.btnCompraLibros);
-            this.panelSubMenu1.Controls.Add(this.panel2);
             this.panelSubMenu1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelSubMenu1.Location = new System.Drawing.Point(0, 235);
+            this.panelSubMenu1.Location = new System.Drawing.Point(0, 185);
             this.panelSubMenu1.Name = "panelSubMenu1";
             this.panelSubMenu1.Size = new System.Drawing.Size(219, 161);
             this.panelSubMenu1.TabIndex = 9;
@@ -333,9 +273,9 @@
             this.btnEstadisticaCompras.IconColor = System.Drawing.Color.White;
             this.btnEstadisticaCompras.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnEstadisticaCompras.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEstadisticaCompras.Location = new System.Drawing.Point(31, 106);
+            this.btnEstadisticaCompras.Location = new System.Drawing.Point(0, 106);
             this.btnEstadisticaCompras.Name = "btnEstadisticaCompras";
-            this.btnEstadisticaCompras.Size = new System.Drawing.Size(188, 53);
+            this.btnEstadisticaCompras.Size = new System.Drawing.Size(219, 53);
             this.btnEstadisticaCompras.TabIndex = 7;
             this.btnEstadisticaCompras.Text = "Estadísticas";
             this.btnEstadisticaCompras.UseVisualStyleBackColor = true;
@@ -351,9 +291,9 @@
             this.btnListaLibros.IconColor = System.Drawing.Color.White;
             this.btnListaLibros.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnListaLibros.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnListaLibros.Location = new System.Drawing.Point(31, 53);
+            this.btnListaLibros.Location = new System.Drawing.Point(0, 53);
             this.btnListaLibros.Name = "btnListaLibros";
-            this.btnListaLibros.Size = new System.Drawing.Size(188, 53);
+            this.btnListaLibros.Size = new System.Drawing.Size(219, 53);
             this.btnListaLibros.TabIndex = 6;
             this.btnListaLibros.Text = "Libros";
             this.btnListaLibros.UseVisualStyleBackColor = true;
@@ -369,39 +309,13 @@
             this.btnCompraLibros.IconColor = System.Drawing.Color.White;
             this.btnCompraLibros.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnCompraLibros.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCompraLibros.Location = new System.Drawing.Point(31, 0);
+            this.btnCompraLibros.Location = new System.Drawing.Point(0, 0);
             this.btnCompraLibros.Name = "btnCompraLibros";
-            this.btnCompraLibros.Size = new System.Drawing.Size(188, 53);
+            this.btnCompraLibros.Size = new System.Drawing.Size(219, 53);
             this.btnCompraLibros.TabIndex = 5;
             this.btnCompraLibros.Text = "Compra";
             this.btnCompraLibros.UseVisualStyleBackColor = true;
             this.btnCompraLibros.Click += new System.EventHandler(this.btnCompraLibros_Click);
-            // 
-            // panel2
-            // 
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(31, 161);
-            this.panel2.TabIndex = 4;
-            // 
-            // btnExpediciones
-            // 
-            this.btnExpediciones.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnExpediciones.FlatAppearance.BorderSize = 0;
-            this.btnExpediciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExpediciones.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnExpediciones.IconChar = FontAwesome.Sharp.IconChar.BookReader;
-            this.btnExpediciones.IconColor = System.Drawing.Color.White;
-            this.btnExpediciones.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnExpediciones.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExpediciones.Location = new System.Drawing.Point(0, 185);
-            this.btnExpediciones.Name = "btnExpediciones";
-            this.btnExpediciones.Size = new System.Drawing.Size(219, 50);
-            this.btnExpediciones.TabIndex = 8;
-            this.btnExpediciones.Text = "Expediciones";
-            this.btnExpediciones.UseVisualStyleBackColor = true;
-            this.btnExpediciones.Click += new System.EventHandler(this.button1_Click);
             // 
             // panel1
             // 
@@ -415,9 +329,11 @@
             // pictureBox4
             // 
             this.pictureBox4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
             this.pictureBox4.Location = new System.Drawing.Point(0, 0);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(219, 185);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox4.TabIndex = 0;
             this.pictureBox4.TabStop = false;
             this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
@@ -480,16 +396,30 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(302, 58);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(500, 500);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox5.TabIndex = 0;
+            this.pictureBox5.TabStop = false;
+            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1382, 653);
             this.Controls.Add(this.panelContenedor);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(1400, 700);
             this.Name = "FormPrincipal";
             this.Text = "FormPrincipal";
             this.panelContenedor.ResumeLayout(false);
+            this.panelFormularios.ResumeLayout(false);
+            this.panelFormularios.PerformLayout();
             this.panelMenu.ResumeLayout(false);
             this.panelSubMenu3.ResumeLayout(false);
             this.panelSubMenu2.ResumeLayout(false);
@@ -501,6 +431,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -517,24 +448,19 @@
         private PictureBox pictureBox1;
         private PictureBox pictureBox4;
         private Panel panelSubMenu1;
-        private FontAwesome.Sharp.IconButton btnExpediciones;
         private FontAwesome.Sharp.IconButton btnEstadisticaCompras;
         private FontAwesome.Sharp.IconButton btnListaLibros;
         private FontAwesome.Sharp.IconButton btnCompraLibros;
-        private Panel panel2;
-        private FontAwesome.Sharp.IconButton iconButton12;
         private Panel panelSubMenu2;
         private FontAwesome.Sharp.IconButton btnPostOrden;
         private FontAwesome.Sharp.IconButton btnOrden;
-        private Panel panel4;
-        private FontAwesome.Sharp.IconButton btnRecepciones;
         private System.Windows.Forms.Timer timer1;
         private Panel panelSubMenu3;
         private FontAwesome.Sharp.IconButton iconButton1;
         private FontAwesome.Sharp.IconButton iconButton2;
         private FontAwesome.Sharp.IconButton iconButton3;
-        private Panel panel5;
         private FontAwesome.Sharp.IconButton btnProveedores;
         private FontAwesome.Sharp.IconButton btnEstadisticasRecepciones;
+        private PictureBox pictureBox5;
     }
 }
