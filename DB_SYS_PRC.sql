@@ -356,6 +356,34 @@ ELSE
 		PRINT @Result
 	END CATCH
 GO
+-- ----------------------------
+-- procedure structure for upd_Stock
+-- ----------------------------
+IF EXISTS (SELECT * FROM sys.all_objects WHERE object_id = OBJECT_ID(N'[dbo].[upd_Stock]') AND type IN ('P', 'PC', 'RF', 'X'))
+	DROP PROCEDURE[dbo].[upd_Stock]
+GO
+
+CREATE PROCEDURE [dbo].[upd_Stock]
+(
+@IdProducto int ,
+@Paquetes int ,
+@Unidades int,
+@Result bit output
+)
+AS
+SET @Result = 0
+IF EXISTS (SELECT * FROM [dbo].[STOCK] WHERE IdProducto = @IdProducto)
+	BEGIN TRY
+			update [dbo].[STOCK] SET
+			Paquetes = Paquetes + @Paquetes
+			WHERE IdProducto = @IdProducto
+			PRINT 5
+	END TRY
+	BEGIN CATCH
+		SET @Result = 1
+		PRINT @Result
+	END CATCH
+GO
 
 SELECT * FROM INPUTS
 SELECT * FROM PRODUCTS

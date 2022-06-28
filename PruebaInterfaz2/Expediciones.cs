@@ -10,6 +10,7 @@ namespace PruebaInterfaz2
         List<Libro> libros = new List<Libro>();
         List<Libro> nuevo_stock = new List<Libro>();
         List<Venta> ventas = new List<Venta>();
+        int IdIndex;
         public Expediciones()
         {
             InitializeComponent();
@@ -159,6 +160,56 @@ namespace PruebaInterfaz2
             libros = FD_Stock.obtenerLibros();
             MostrarDatos();
             MostrarDatos_Venta(ventas);
+        }
+
+        private void btnQuitar_Click(object sender, EventArgs e)
+        {
+            int i = 0,var = 0;
+
+            foreach (var lib in nuevo_stock)
+            {
+                if (lib.IdProducto == IdIndex)
+                {
+                    var = i;
+                }
+                else
+                {
+                    i++;
+                }
+                
+            }
+            nuevo_stock.RemoveAt(var);
+            i = var = 0;
+            foreach (var Vout in ventas)
+            {
+                if (Vout.IdProducto == IdIndex)
+                {
+                    var = i;
+                }
+                else
+                {
+                    i++;
+                }
+            }
+            ventas.RemoveAt(var);
+            libros = FD_Stock.obtenerLibros();
+            MostrarDatos();
+            MostrarDatos_Venta(ventas);
+            btnQuitar.Enabled = false;
+        }
+
+        private void DT_Ventas_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                IdIndex = Convert.ToInt32(DT_Ventas.Rows[e.RowIndex].Cells["Id"].Value);
+                btnQuitar.Enabled = true;
+            }
+            catch (Exception ex)
+            {
+                btnQuitar.Enabled = false;
+            }
+
         }
     }
 }

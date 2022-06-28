@@ -361,6 +361,7 @@
             this.btnQuitar.TabIndex = 63;
             this.btnQuitar.Text = "Quitar";
             this.btnQuitar.UseVisualStyleBackColor = true;
+            this.btnQuitar.Click += new System.EventHandler(this.btnQuitar_Click);
             // 
             // DT_Ventas
             // 
@@ -378,6 +379,7 @@
             this.DT_Ventas.RowTemplate.Height = 29;
             this.DT_Ventas.Size = new System.Drawing.Size(591, 235);
             this.DT_Ventas.TabIndex = 10;
+            this.DT_Ventas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DT_Ventas_CellClick);
             // 
             // Expediciones
             // 
